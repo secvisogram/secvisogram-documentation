@@ -17,17 +17,17 @@ jobs:
         with:
           python-version: '3.10'
       - name: merge usage documentation files into one
-        run: python docs/md_merge.py --input docs/user --lang en --output docs --name author_guide.md
+        run: python scripts/md_merge.py --input user --lang en --output . --name author_guide.md
       - name: convert markdown to html
         uses: docker://pandoc/latex:2.19
         with:
           args: >-
-            docs/author_guide.md
+            author_guide.md
             -f markdown
             -t html
             -o public/index.html
-            --lua-filter=docs/filters.lua
-            --defaults=docs/defaults.yaml
+            --lua-filter=etc/filters.lua
+            --defaults=etc/defaults.yaml
       - name: deploy to GitHub pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:

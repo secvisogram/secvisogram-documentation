@@ -9,30 +9,34 @@ Additionally, an author guide is generated as PDF document.
 The author guide is a concatenation of the usage documentation files compiled into an accessible PDF document.
 To generate this document the following steps are necessary:
 
-* Merge the usage documentation files (`*-usage.en.md`) using the script `md_merge.py`.
+* Merge the usage documentation files (`*-usage.en.md`) using the
+  [md_merge.py](https://github.com/secvisogram/secvisogram-documentation/blob/main/scripts/md_merge.py) script.
 
-  `python docs/md_merge.py --input docs/user --lang en --output docs --name author_guide.md`
+  `python scripts/md_merge.py --input user --lang en --output . --name author_guide.md`
 
   This script allows for selecting a specific language, see the `--lang` flag.
   See [below](#translating-the-documentation) for details on how to translate the documentation.
 
 * Convert the resulting markdown file into docx format.
 
-  `pandoc docs/author_guide.md -f markdown -t docx -o docs/author_guide.docx -V block-headings --table-of-contents --lua-filter=docs/filters.lua --defaults=docs/defaults.yaml`
+  `pandoc author_guide.md -f markdown -t docx -o author_guide.docx --lua-filter=etc/filters.lua --defaults=etc/defaults.yaml`
 
 * Populate the documents' table of contents with a custom macro.
 
   `libreoffice --headless --invisible "macro:///Standard.customModule.UpdateIndexes(/absolute/path/to/author_guide.docx)"`
 
-  This requires the [custom macro](https://github.com/secvisogram/secvisogram-documentation/blob/main/customModule.xba) to be available in libreoffice.
+  This requires the absolute path to the generated docx file and the
+  [custom macro](https://github.com/secvisogram/secvisogram-documentation/blob/main/etc/customModule.xba) to be
+  available in libreoffice.
 
 * Convert the docx file into an accessible PDF with libreoffice.
 
-  `libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir docs docs/author_guide.docx`
+  `libreoffice --headless --convert-to pdf:writer_pdf_Export --outdir . author_guide.docx`
 
   To generate an accessible PDF this requires Universal Access Compliance to be enabled in libreoffice.
 
-The title and author of the resulting document can be changed in `defaults.yaml`.
+The title and author of the resulting document can be changed in
+[etc/defaults.yaml](https://github.com/secvisogram/secvisogram-documentation/blob/main/etc/defaults.yaml).
 
 A GitHub action is used to automate these steps and publish the English author guide as an artifact.
 See the [generate-author-guide.yml](https://github.com/secvisogram/secvisogram-documentation/blob/main/.github/workflows/generate-author-guide.yml) workflow.
