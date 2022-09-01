@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  generate-docs:
+  publish-gh-page:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
