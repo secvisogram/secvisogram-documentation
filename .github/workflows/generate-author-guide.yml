@@ -2,6 +2,8 @@ name: generate-author-guide
 
 on:
   push:
+    tags:
+      - 'v**'
 
 jobs:
   generate-author-guide:
