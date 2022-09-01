@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Secvisogram" />
+  <meta name="dcterms.date" content="2022-09-01" />
+  <title>CSAF Author Guide</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">CSAF Author Guide</h1>
+<p class="author">Secvisogram</p>
+<p class="date">2022-09-01</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#document" id="toc-document"><span
+class="toc-section-number">1</span> Document</a>
+<ul>
+<li><a href="#acknowledgments" id="toc-acknowledgments"><span
+class="toc-section-number">1.1</span> Acknowledgments</a></li>
+<li><a href="#aggregate-severity" id="toc-aggregate-severity"><span
+class="toc-section-number">1.2</span> Aggregate Severity</a></li>
+<li><a href="#distribution" id="toc-distribution"><span
+class="toc-section-number">1.3</span> Distribution</a>
+<ul>
+<li><a href="#tlp" id="toc-tlp"><span
+class="toc-section-number">1.3.1</span> TLP</a></li>
+</ul></li>
+<li><a href="#notes" id="toc-notes"><span
+class="toc-section-number">1.4</span> Notes</a></li>
+<li><a href="#publisher" id="toc-publisher"><span
+class="toc-section-number">1.5</span> Publisher</a></li>
+<li><a href="#references" id="toc-references"><span
+class="toc-section-number">1.6</span> References</a></li>
+<li><a href="#tracking" id="toc-tracking"><span
+class="toc-section-number">1.7</span> Tracking</a>
+<ul>
+<li><a href="#aliases" id="toc-aliases"><span
+class="toc-section-number">1.7.1</span> Aliases</a></li>
+<li><a href="#generator" id="toc-generator"><span
+class="toc-section-number">1.7.2</span> Generator</a>
+<ul>
+<li><a href="#engine" id="toc-engine"><span
+class="toc-section-number">1.7.2.1</span> Engine</a></li>
+</ul></li>
+<li><a href="#revision-history" id="toc-revision-history"><span
+class="toc-section-number">1.7.3</span> Revision History</a>
+<ul>
+<li><a href="#revision-history-1" id="toc-revision-history-1"><span
+class="toc-section-number">1.7.3.1</span> Revision History</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#product-tree" id="toc-product-tree"><span
+class="toc-section-number">2</span> Product Tree</a>
+<ul>
+<li><a href="#branches" id="toc-branches"><span
+class="toc-section-number">2.1</span> Branches</a></li>
+<li><a href="#full-product-name" id="toc-full-product-name"><span
+class="toc-section-number">2.2</span> Full Product Name</a></li>
+<li><a href="#product-groups" id="toc-product-groups"><span
+class="toc-section-number">2.3</span> Product Groups</a>
+<ul>
+<li><a href="#product-groups-1" id="toc-product-groups-1"><span
+class="toc-section-number">2.3.1</span> Product Groups</a>
+<ul>
+<li><a href="#group-id" id="toc-group-id"><span
+class="toc-section-number">2.3.1.1</span> Group ID</a></li>
+<li><a href="#product-id" id="toc-product-id"><span
+class="toc-section-number">2.3.1.2</span> Product ID</a></li>
+<li><a href="#summary" id="toc-summary"><span
+class="toc-section-number">2.3.1.3</span> Summary</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#relationships" id="toc-relationships"><span
+class="toc-section-number">2.4</span> Relationships</a>
+<ul>
+<li><a href="#relationship" id="toc-relationship"><span
+class="toc-section-number">2.4.1</span> Relationship</a>
+<ul>
+<li><a href="#category" id="toc-category"><span
+class="toc-section-number">2.4.1.1</span> Category</a></li>
+<li><a href="#product-reference" id="toc-product-reference"><span
+class="toc-section-number">2.4.1.2</span> Product Reference</a></li>
+<li><a href="#relates-to-product-reference"
+id="toc-relates-to-product-reference"><span
+class="toc-section-number">2.4.1.3</span> Relates To Product
+Reference</a></li>
+<li><a href="#full-product-name-1" id="toc-full-product-name-1"><span
+class="toc-section-number">2.4.1.4</span> Full Product Name</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#types" id="toc-types"><span
+class="toc-section-number">3</span> Types</a>
+<ul>
+<li><a href="#product-groups-2" id="toc-product-groups-2"><span
+class="toc-section-number">3.1</span> Product Groups</a></li>
+<li><a href="#products" id="toc-products"><span
+class="toc-section-number">3.2</span> Products</a></li>
+<li><a href="#acknowledgments-1" id="toc-acknowledgments-1"><span
+class="toc-section-number">3.3</span> Acknowledgments</a>
+<ul>
+<li><a href="#acknowledgment" id="toc-acknowledgment"><span
+class="toc-section-number">3.3.1</span> Acknowledgment</a>
+<ul>
+<li><a href="#names" id="toc-names"><span
+class="toc-section-number">3.3.1.1</span> Names</a></li>
+<li><a href="#urls" id="toc-urls"><span
+class="toc-section-number">3.3.1.2</span> URLs</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#branches-1" id="toc-branches-1"><span
+class="toc-section-number">3.4</span> Branches</a>
+<ul>
+<li><a href="#branch" id="toc-branch"><span
+class="toc-section-number">3.4.1</span> Branch</a>
+<ul>
+<li><a href="#product" id="toc-product"><span
+class="toc-section-number">3.4.1.1</span> Product</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#full-product-name-2" id="toc-full-product-name-2"><span
+class="toc-section-number">3.5</span> Full Product Name</a>
+<ul>
+<li><a href="#product-identification-helper"
+id="toc-product-identification-helper"><span
+class="toc-section-number">3.5.1</span> Product Identification
+Helper</a>
+<ul>
+<li><a href="#hashes" id="toc-hashes"><span
+class="toc-section-number">3.5.1.1</span> Hashes</a></li>
+<li><a href="#model-numbers" id="toc-model-numbers"><span
+class="toc-section-number">3.5.1.2</span> Model Numbers</a></li>
+<li><a href="#sbom-urls" id="toc-sbom-urls"><span
+class="toc-section-number">3.5.1.3</span> SBOM Urls</a></li>
+<li><a href="#serial-numbers" id="toc-serial-numbers"><span
+class="toc-section-number">3.5.1.4</span> Serial Numbers</a></li>
+<li><a href="#skus" id="toc-skus"><span
+class="toc-section-number">3.5.1.5</span> SKUs</a></li>
+<li><a href="#generic-uris" id="toc-generic-uris"><span
+class="toc-section-number">3.5.1.6</span> Generic URIs</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#notes-1" id="toc-notes-1"><span
+class="toc-section-number">3.6</span> Notes</a>
+<ul>
+<li><a href="#note" id="toc-note"><span
+class="toc-section-number">3.6.1</span> Note</a></li>
+</ul></li>
+<li><a href="#references-1" id="toc-references-1"><span
+class="toc-section-number">3.7</span> References</a>
+<ul>
+<li><a href="#reference" id="toc-reference"><span
+class="toc-section-number">3.7.1</span> Reference</a>
+<ul>
+<li><a href="#category-1" id="toc-category-1"><span
+class="toc-section-number">3.7.1.1</span> Category</a></li>
+<li><a href="#summary-1" id="toc-summary-1"><span
+class="toc-section-number">3.7.1.2</span> Summary</a></li>
+<li><a href="#url" id="toc-url"><span
+class="toc-section-number">3.7.1.3</span> Url</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#vulnerabilities" id="toc-vulnerabilities"><span
+class="toc-section-number">4</span> Vulnerabilities</a>
+<ul>
+<li><a href="#vulnerability" id="toc-vulnerability"><span
+class="toc-section-number">4.1</span> Vulnerability</a>
+<ul>
+<li><a href="#notes-2" id="toc-notes-2"><span
+class="toc-section-number">4.1.1</span> Notes</a></li>
+<li><a href="#references-2" id="toc-references-2"><span
+class="toc-section-number">4.1.2</span> References</a></li>
+<li><a href="#acknowledgments-2" id="toc-acknowledgments-2"><span
+class="toc-section-number">4.1.3</span> Acknowledgments</a></li>
+<li><a href="#cwe" id="toc-cwe"><span
+class="toc-section-number">4.1.4</span> CWE</a></li>
+<li><a href="#flags" id="toc-flags"><span
+class="toc-section-number">4.1.5</span> Flags</a>
+<ul>
+<li><a href="#flag" id="toc-flag"><span
+class="toc-section-number">4.1.5.1</span> Flag</a></li>
+</ul></li>
+<li><a href="#ids" id="toc-ids"><span
+class="toc-section-number">4.1.6</span> Ids</a>
+<ul>
+<li><a href="#id" id="toc-id"><span
+class="toc-section-number">4.1.6.1</span> ID</a></li>
+</ul></li>
+<li><a href="#involvements" id="toc-involvements"><span
+class="toc-section-number">4.1.7</span> Involvements</a>
+<ul>
+<li><a href="#involvement" id="toc-involvement"><span
+class="toc-section-number">4.1.7.1</span> Involvement</a></li>
+</ul></li>
+<li><a href="#product-status" id="toc-product-status"><span
+class="toc-section-number">4.1.8</span> Product Status</a></li>
+<li><a href="#remediations" id="toc-remediations"><span
+class="toc-section-number">4.1.9</span> Remediations</a>
+<ul>
+<li><a href="#remediation" id="toc-remediation"><span
+class="toc-section-number">4.1.9.1</span> Remediation</a></li>
+</ul></li>
+<li><a href="#scores" id="toc-scores"><span
+class="toc-section-number">4.1.10</span> Scores</a>
+<ul>
+<li><a href="#score" id="toc-score"><span
+class="toc-section-number">4.1.10.1</span> Score</a></li>
+</ul></li>
+<li><a href="#threats" id="toc-threats"><span
+class="toc-section-number">4.1.11</span> Threats</a>
+<ul>
+<li><a href="#threat" id="toc-threat"><span
+class="toc-section-number">4.1.11.1</span> Threat</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="document"><span
+class="header-section-number">1</span> Document</h1>
+<p>Contains all metadata that is required to identify the advisory. This
+includes, among other things, the title and category (profile) of the
+document, as well as the publisher and version history.</p>
+<p>A machine-readable advisory requires the same - or more - information
+than the human-readable version. If more information is provided than in
+the human-readable format, this should be noted for the review of the
+document. The human-readable advisory must be derivable from the
+machine-readable one. The machine-readable document is superordinated to
+the human-readable document.</p>
+<p><strong>Category</strong></p>
+<p>This value determines the profile name for the CSAF document. It
+should always be the value of the profile defined in the <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#4-profiles">specification</a>.</p>
+<p>The selected profile has an impact on how the document is validated.
+It is highly encouraged to use the defined CSAF profiles.</p>
+<p>The available profiles are:</p>
+<ul>
+<li><code>csaf_base</code></li>
+<li><code>csaf_informational_advisory</code></li>
+<li><code>csaf_security_incident_response</code></li>
+<li><code>csaf_security_advisory</code></li>
+<li><code>csaf_vex</code></li>
+</ul>
+<p>As advisories with category <code>csaf_base</code> do not provide
+much value, it is recommended to use a higher profile. For validation,
+the profile <code>csaf_base</code> is always used as fallback. With this
+profile, fewer validations are carried out. In general, if in doubt, use
+a higher profile containing more information.</p>
+<p>A company may introduce custom categories, which will also lead to
+<code>csaf_base</code> being used as fallback for validation.</p>
+<p>For a document with the profile <code>csaf_base</code> the category
+value must not be equal to the (case insensitive) name (without the
+prefix <code>csaf_</code>) or value of any other profile than “CSAF
+Base”. Any occurrences of dash, whitespace, and underscore characters
+are removed from the values on both sides before the match. Also, the
+value must not start with the reserved prefix <code>csaf_</code> except
+if the value is <code>csaf_base</code>.</p>
+<p><strong>Csaf Version</strong></p>
+<p>Must be set to <code>2.0</code> which is currently the only valid
+value.</p>
+<p><strong>Lang</strong></p>
+<p>The language the document is written in.</p>
+<p>Must not be the same as <code>/document/source_lang</code>.</p>
+<p>Helps the consumer to automatically filter the documents according to
+his language. Can also be used to sort the documents by language within
+the distribution mechanism (see section 7 of the specification).</p>
+<p>As part of the document creation process, the language helps to run a
+spell checker. Therefore, it should be as specific as possible and
+reasonable: e.g. use <code>en-US</code> or <code>en-GB</code> instead of
+just <code>en</code>.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-1">types</a>.</p>
+<p><strong>Source Lang</strong></p>
+<p>This field must be present and set if the value
+<code>translator</code> is used in
+<code>/document/publisher/categoy</code> to indicate the language of the
+original document. If the document was not translated, this field should
+not be set.</p>
+<p>The source language must not be the same as the document language in
+<code>/document/lang</code>.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-2">types</a>.</p>
+<p><strong>Title</strong></p>
+<p>The title should provide a quick overview of what this document is
+about to the user.</p>
+<p>Typically, a product name is referenced. For vulnerabilities that
+became more well known, several exemplary products may be listed.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li><code>Product A affected by RCE</code></li>
+<li><code>Multiple Products affected by Log4Shell Vulnerability</code></li>
+<li><code>Product Family X affected by Vulnerability Y</code></li>
+</ul>
+<h2 data-number="1.1" id="acknowledgments"><span
+class="header-section-number">1.1</span> Acknowledgments</h2>
+<p>Acknowledgments of people and organizations that were involved in
+discovery, publication and coordination of the process that lead to the
+CSAF document.</p>
+<p>The acknowledgments are an important tool to reward and honor
+security researchers and contribute to the reputation of an
+organization.</p>
+<p>In contrast to the Vulnerability Acknowledgments
+(<code>/vulnerabilities[]/acknowledgments</code>) contributions to the
+whole document can be honored.</p>
+<p>Listing coordinating entities is recommended but not required.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-3">types</a>.</p>
+<h2 data-number="1.2" id="aggregate-severity"><span
+class="header-section-number">1.2</span> Aggregate Severity</h2>
+<p>Vendor assessment of the overall criticality of the vulnerabilities
+in the document.</p>
+<p>This could, for example, be the textual description of the base
+severity corresponding to the highest CVSS score.</p>
+<p><strong>Namespace</strong></p>
+<p>Reference to an explanation of the meaning of the severity
+rating.</p>
+<p><strong>Text</strong></p>
+<p>Represents overall assessment and should be a string from a closed
+set. The set may be vendor-specific or come from an applicable
+standard.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li><a href="https://github.com/CERTCC/SSVC">SSVC decision or
+vector</a></li>
+<li><a
+href="https://access.redhat.com/security/updates/classification/">Red
+Hat Severity Ratings</a></li>
+<li>Assessment according to the German Advisory Format (DAF)</li>
+<li>Rating between 1 and 5</li>
+</ul>
+<h2 data-number="1.3" id="distribution"><span
+class="header-section-number">1.3</span> Distribution</h2>
+<p>Specifies how and to whom the document can be distributed.</p>
+<p>Classification according to TLP is preferred because it is
+machine-processable.</p>
+<p><strong>Text</strong></p>
+<p>A textual description of how the document may be distributed.</p>
+<p>The use of TLP labels is preferred.</p>
+<h3 data-number="1.3.1" id="tlp"><span
+class="header-section-number">1.3.1</span> TLP</h3>
+<p>The Traffic Light Protocol (TLP) is a standardized agreement for the
+exchange of information worthy of protection (see <a
+href="https://www.first.org/tlp/docs/tlp-v1.pdf">https://www.first.org/tlp/docs/tlp-v1.pdf</a>).</p>
+<p>Public Advisories should generally be classified as
+<code>TLP:WHITE</code>.</p>
+<p>If there are prior obligations to inform a closed user group, these
+should be distributed as <code>TLP:AMBER</code> or
+<code>TLP:RED</code>.</p>
+<p>In principle, <a href="https://www.first.org/tlp/">the definition of
+FIRST</a> applies. If a different definition has been agreed with the
+customer group, this must be specified with a URL
+(<code>/document/distribution/tlp/url</code>).</p>
+<p><strong>Label</strong></p>
+<p>The label should be set and must be valid. There are four traffic
+light values:</p>
+<ul>
+<li><p><code>RED</code> - <em>Not for disclosure, restricted to
+participants only</em>:</p>
+<p>In the context of a meeting, for example, <code>TLP:RED</code>
+information is limited to those present at the meeting. The distribution
+of <code>TLP:RED</code> information will generally be via a defined list
+and in some circumstances may only be passed verbally or in
+person.</p></li>
+<li><p><code>AMBER</code> - <em>Limited disclosure, restricted to
+participants’ organizations</em>:</p>
+<p>The recipient may share <code>TLP:AMBER</code> information with
+others within their organization, but only on a ‘need-to-know’ basis.
+The originator may be expected to specify the intended limits of that
+sharing.</p></li>
+<li><p><code>GREEN</code> - <em>Limited disclosure, restricted to the
+community</em>:</p>
+<p>Information in this category can be circulated widely within a
+particular community. However, the information may not be published or
+posted publicly on the Internet, nor released outside the
+community.</p></li>
+<li><p><code>WHITE</code> - <em>Disclosure is not limited</em>:</p>
+<p>Subject to standard copyright rules, <code>TLP:WHITE</code>
+information may be distributed freely, without restriction.</p></li>
+</ul>
+<p>For more information about the TLP, refer to <a
+href="https://first.org/tlp/">the TLP website from FIRST</a>.</p>
+<p><strong>Url</strong></p>
+<p>Reference to the meaning of the used TLP labels. The default value is
+a link to the <a href="https://www.first.org/tlp/">definitions from
+FIRST</a>. This default value should not be omitted.</p>
+<p>The default value should only be deviated from in exceptional cases,
+since the default is easier to automate.</p>
+<h2 data-number="1.4" id="notes"><span
+class="header-section-number">1.4</span> Notes</h2>
+<p>For CSAF advisories that contain a <code>product_tree</code>, a short
+description of the products should be included. This should have the
+category <code>description</code> and the title “Product Description”.
+In this note, the product should be described in more detail in terms of
+functionality and benefits in a few sentences. This applies analogously
+to product families.</p>
+<p>Another element with title “General Security Recommendations” and
+category <code>general</code> should be created.</p>
+<p>Another element of the category <code>summary</code> that summarizes
+vulnerabilities should be created.</p>
+<p>Adding a legal disclaimer for the document is encouraged.</p>
+<p>FAQs, if not vulnerability specific, belong in this section.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-4">types</a>.</p>
+<p><em>Additional details for profile CSAF Informational
+Advisory</em></p>
+<p>For the <code>csaf_informational_advisory</code> profile at least one
+note must exist which has a <code>category</code> of
+<code>description</code>, <code>details</code>, <code>general</code> or
+<code>summary</code>. It should contain information what the “issue” is
+about and describe it as well as countermeasures or recommended
+actions.</p>
+<p><em>Additional details for profile CSAF Security Incident
+Response</em></p>
+<p>For the <code>csaf_security_incident_response</code> profile at least
+one note must exist which has a <code>category</code> of
+<code>description</code>, <code>details</code>, <code>general</code> or
+<code>summary</code>. The response should be detailed. It may touch on
+impacts and recommended actions. The response should be clearly marked
+as such - e.g. through the title of the note.</p>
+<h2 data-number="1.5" id="publisher"><span
+class="header-section-number">1.5</span> Publisher</h2>
+<p>Contains all information about the issuing party of the CSAF
+document.</p>
+<p><strong>Category</strong></p>
+<p>The publisher’s category is useful for the reader to understand the
+perspective of the publisher. This information enables the consumer to
+estimate the trustworthiness of the advisory.</p>
+<p>The valid values are</p>
+<ul>
+<li><code>coordinator</code></li>
+<li><code>discoverer</code></li>
+<li><code>other</code></li>
+<li><code>translator</code></li>
+<li><code>user</code></li>
+<li><code>vendor</code></li>
+</ul>
+<p>In most cases the value <code>vendor</code> is correct. If the value
+<code>translator</code> is used, the field
+<code>/document/source_lang</code> must be set.</p>
+<p><strong>Contact Details</strong></p>
+<p>Lists options of contacting the publisher of the advisories.</p>
+<p>At least one email address should be given for queries about the CSAF
+document. Email addresses of functions are preferred since people may
+change but the functional mailbox remains. If in doubt, a website with a
+contact form can also be given. For quick queries, a telephone number
+can also be provided. Listing postal addresses is unusual but
+possible.</p>
+<p>It can be useful, especially if a telephone number is given, as it
+helps to get an idea what timezone the team is located in.</p>
+<p><strong>Issuing Authority</strong></p>
+<p>Used to define responsibilities. Can also be used to establish
+geographical responsibility, e.g. Cert only for national security
+researchers and/or vendors. It is mostly used for sectoral, geographical
+or organizational specialization.</p>
+<p><em>Example:</em></p>
+<ul>
+<li>ICS-CERT may state that “[they] coordinate any ICS related
+vulnerabilities”. This means that ICS-CERT is not the right team to talk
+with in regards to IT products (e.g. Microsoft Exchange).</li>
+</ul>
+<p>Especially relevant for large companies/organizations or managed
+service providers. Also relevant if there are several teams that issue
+advisories within the same group.</p>
+<p><em>Example:</em></p>
+<ul>
+<li>Despite the “similar” name of “Siemens” and “Siemens Energy”,
+responsibilities can be described more clearly.</li>
+</ul>
+<p>The value should be a full text description.</p>
+<p><em>Example:</em></p>
+<ul>
+<li>“Example Company PSIRT is responsible for any vulnerabilities
+related to Example Company’s products or services.”</li>
+</ul>
+<p><strong>Name</strong></p>
+<p>The name of the issuing party. Typically, the company name or the
+name of the Product Security Team.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li><code>Example Company PSIRT</code> (Product Security Incident
+Response Team)</li>
+<li><code>ProductCERT</code> (Product Computer Emergency Response
+Team)</li>
+<li><code>Example Company</code></li>
+</ul>
+<p><strong>Namespace</strong></p>
+<p>The namespace is useful to unambiguously and globally identify the
+vendor or manufacturer.</p>
+<p>Often times a URL of the company or issuing party is used which is
+recommended. Can also be a URL pointing to a page on which advisories
+are published.</p>
+<p>In combination with the tracking ID
+(<code>/document/tracking/id</code>) the CSAF document is uniquely
+identifiable. If the document version is added to that combination, a
+single version of the document is globally uniquely identified.</p>
+<h2 data-number="1.6" id="references"><span
+class="header-section-number">1.6</span> References</h2>
+<p>There should be one reference item that provides a canonical URL for
+this document: It has the category <code>self</code>, the
+<code>url</code> starts with <code>https://</code> and ends with a valid
+filename for the CSAF document according to the rules in <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#51-filename">section
+5.1. of the specification</a>.</p>
+<p>All links that have any relevance in the overall context of the
+document should be listed here. This could include original advisories,
+advisories of the manufacturer or advisories of the coordinator. If
+other advisories (especially from suppliers) are referenced, they should
+be listed here.</p>
+<p>It is recommended to include links to the recommended cybersecurity
+best practices documents of the organization and the website which lists
+the advisories.</p>
+<p>CVE entries should only be linked in the corresponding vulnerability
+item.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-5">types</a>.</p>
+<p><em>Additional details for profile CSAF Informational
+Advisory</em></p>
+<p>For the <code>csaf_informational_advisory</code> profile at least one
+reference must exist which has links to an <code>external</code> source.
+The sources linked in such external references may be documents or
+websites providing more details about the issue or its remediation (if
+possible). This could be a hardening guide, a manual, best practices or
+any other helpful information.</p>
+<p><em>Additional details for profile CSAF Security Incident
+Response</em></p>
+<p>For the <code>csaf_security_incident_response</code> profile at least
+one reference must exist which has links to an <code>external</code>
+source. The sources linked in such external references may be documents
+or websites providing more details about the incident.</p>
+<h2 data-number="1.7" id="tracking"><span
+class="header-section-number">1.7</span> Tracking</h2>
+<p>Provides all meta information required for tracking the document and
+its lifecycle. This includes the change history and the current
+state.</p>
+<p><strong>Current Release Date</strong></p>
+<p>Defines when the current version of the document was published.</p>
+<p>Should not be older than the <code>date</code> of the newest item in
+Revision History (<code>/document/tracking/revision_history</code>).</p>
+<p>The time should reference the point in time of the actual (planned)
+publication.</p>
+<p><strong>ID</strong></p>
+<p>The unique name of the document within the issuing party.</p>
+<p>In combination with the publisher namespace
+(<code>/document/publisher/namespace</code>) the CSAF document is
+globally identifiable. If the document version is added to that
+combination, a single version of the document is globally uniquely
+identified.</p>
+<p>The tracking ID remains constant when a new version of the document
+is released.</p>
+<p>The filename of the document is derived from this ID as described in
+the <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#51-filename">specification</a>.</p>
+<p>The ID is typically a combination of a short identifier of the
+issuing party, year and a sequential number. The recommended format is
+“CompanyAbbreviation-YYYY-#####”</p>
+<p><em>Examples:</em></p>
+<ul>
+<li><code>ECSA-2022-00123</code> (Example Company Security
+Advisory)</li>
+</ul>
+<p><strong>Initial Release Date</strong></p>
+<p>The date when the first version of the document was published. In
+pre-release versions the planned publication date is used.</p>
+<p>The value should not be older than the <code>date</code> of the
+oldest item in Revision History
+(<code>/document/tracking/revision_history</code>). Typically, this is
+identical to the oldest element in the revision history. For published
+documents, the oldest item has the <code>number</code> value of
+<code>1</code> for <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#31112-version-type---semantic-versioning">integer
+versioning</a> and <code>1.0.0</code> for <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#31111-version-type---integer-versioning">semantic
+versioning</a>. The value of initial release date does not change
+anymore after publication of that first version.</p>
+<p>The time should reference the point in time of the actual (planned)
+publication.</p>
+<p><strong>Status</strong></p>
+<p>The working status of the document. Possible values are
+<code>draft</code>, <code>interim</code> and <code>final</code>.</p>
+<p>Must be set to <code>draft</code> for all draft versions,
+i.e. whenever the version is <code>0</code> or <code>0.x.y</code>, or
+contains a pre-release part.</p>
+<p>If it is foreseeable that updates will come in high frequency within
+the next days, then the value <code>interim</code> should be selected.
+The status <code>interim</code> asks the consumer to check the advisory
+more often for updates. This is especially the case for vulnerabilities
+where there are frequent updates while the analysis is still running
+(e.g. like Log4Shell).</p>
+<p>The value <code>final</code> should be chosen for all versions where
+no exceptionally high frequency of updates is expected. For example, if
+advisories are released once a month on a regular patch day, the value
+<code>final</code> can be specified. If it is generally not foreseeable
+that changes will be made at the time of release, the value
+<code>final</code> should be selected.</p>
+<p><strong>Version</strong></p>
+<p>The version of the present document.</p>
+<p>The version may still contain pre-release information (e.g. 1.0.0-17)
+or build metadata for documents in <code>draft</code> status. For
+documents in <code>interim</code> or <code>final</code> status no
+pre-release information must be included.</p>
+<p>In general, a distinction is made between integer versioning and
+semantic versioning. With integer versioning the version number is
+incremented by one for every public release. With semantic versioning
+the version number has the form <code>MAJOR.MINOR.PATCH</code> and the
+individual parts are incremented under certain conditions. Whenever the
+operator needs to do a new matching run on his asset database (matching
+the products from the CSAF product tree with deployed products) the
+<code>MAJOR</code> version is incremented. For small changes such as
+correcting typos, the <code>PATCH</code> version is incremented. All
+changes in between trigger an increase of the <code>MINOR</code>
+version. The exact rules of the versioning schemes are defined in <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/cs02/csaf-v2.0-cs02.html#3111-version-type">section
+3.1.11 of the specification</a>.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-6">types</a>.</p>
+<h3 data-number="1.7.1" id="aliases"><span
+class="header-section-number">1.7.1</span> Aliases</h3>
+<p>Aliases can be used to indicate the number, identifier or name
+assigned to this advisory, case or issue by the coordinator,
+manufacturer, supplier or other party. This can also include internal
+ticket numbers.</p>
+<p>The aliases should not be used to list identifiers of single
+vulnerabilities which are listed in
+<code>/vulnerabilities[]/ids</code>.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li><code>ICSA-20-168-01</code></li>
+<li><code>VU#257161</code></li>
+<li><code>Ripple20</code></li>
+<li><code>AMNESIA:33</code></li>
+<li><code>OT:ICEFALL</code></li>
+</ul>
+<p><strong>Alias</strong></p>
+<p>An alias name.</p>
+<h3 data-number="1.7.2" id="generator"><span
+class="header-section-number">1.7.2</span> Generator</h3>
+<p>The generator that was used to generate the CSAF document.</p>
+<p><strong>Date</strong></p>
+<p>The date when the document was generated.</p>
+<p>May be different from the <code>current_release_date</code>.</p>
+<h4 data-number="1.7.2.1" id="engine"><span
+class="header-section-number">1.7.2.1</span> Engine</h4>
+<p>Filled in by the generating program.</p>
+<p><strong>Name</strong></p>
+<p>Filled in by the generating program, represents the name of the
+program.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li><code>Red Hat SDEngine</code></li>
+<li><code>Secvisogram</code></li>
+<li><code>TVCE</code></li>
+</ul>
+<p><strong>Version</strong></p>
+<p>Different versions of the generator may generate CSAF documents with
+potentially different structure. Based on this value, different paths
+may need to be used for matching.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li>A company may change their name and in consequence
+<code>full_product_name</code>s and the generation of document changes.
+This would require an adjustment of matching.</li>
+</ul>
+<p>A change in versioning (e.g. switching from <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#31112-version-type---semantic-versioning">integer
+versioning</a> to <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#31111-version-type---integer-versioning">semantic
+versioning</a>) requires a change in matching.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li><code>0.6.0</code></li>
+<li><code>1.0.0-beta+exp.sha.a1c44f85</code></li>
+<li><code>2</code></li>
+</ul>
+<h3 data-number="1.7.3" id="revision-history"><span
+class="header-section-number">1.7.3</span> Revision History</h3>
+<p>The revision history is used to track the development of the document
+in at least all published versions. There must be an entry in the
+revision history for each published version. For pre-release versions
+there are no entries in the version history. However, before the first
+release, the field can be used to record changes.</p>
+<p>The revision items sorted by date must have <code>number</code>
+values in ascending order.</p>
+<p>The <code>number</code> of the revision item with the most recent
+<code>date</code> value must be the same as in
+<code>/document/tracking/version</code>. For this comparison build
+metadata is ignored. If the document status is <code>draft</code> any
+pre-release part is also ignored.</p>
+<p>The revision items sorted by date must not omit a version
+<code>number</code>. In case of <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#31111-version-type---integer-versioning">semantic
+versioning</a>, this applies only to the major version. This sorted list
+of version numbers must start with (major) version <code>0</code> for
+documents in <code>draft</code> status or <code>1</code> in
+<code>final</code> or <code>interim</code> status.</p>
+<p>The same version <code>number</code> must not be repeated for
+multiple revision items.</p>
+<p>The oldest revision item should not have a newer <code>date</code>
+than the initial release date
+<code>/document/tracking/initial_release_date</code>.</p>
+<h4 data-number="1.7.3.1" id="revision-history-1"><span
+class="header-section-number">1.7.3.1</span> Revision History</h4>
+<p>An item in the revision history.</p>
+<p><strong>Date</strong></p>
+<p>The date when this version was published. For pre-release versions
+the planned publication date is used. For final and interim versions the
+actual publication date is used.</p>
+<p>The value does not change anymore after publication.</p>
+<p><em>Example:</em></p>
+<ul>
+<li>The publication of an advisory was planned on 18.05. at 12:00. If
+the advisory is then published at 11:30, the time should be adjusted. If
+the time is not corrected before publication, it must not be changed
+afterwards anymore.</li>
+</ul>
+<p><strong>Legacy Version</strong></p>
+<p>The legacy version can be used to create a mapping to a
+human-readable version of the document that follows a version scheme
+other than <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#31112-version-type---semantic-versioning">integer
+versioning</a> or <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#31111-version-type---integer-versioning">semantic
+versioning</a>. This should only be used as a temporary solution - a
+transition to the versioning scheme used in the CSAF document should be
+aimed for.</p>
+<p><strong>Number</strong></p>
+<p>The document version of the document this revision history element
+corresponds to is used as value here.</p>
+<p>The value must not be <code>0</code> or <code>0.y.z</code> if the
+document status (<code>/document/tracking/status</code>) is set to
+<code>final</code> or <code>interim</code>.</p>
+<p>The value must not include pre-release information and should not
+include build metadata information.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-7">types</a>.</p>
+<p><strong>Summary</strong></p>
+<p>The summary aids the reader in initial assessment during
+inspection.</p>
+<p>For the initial version a short notice indicating that this refers to
+this first version is sufficient, e.g. “Initial version” or “Initial
+publication”.</p>
+<p>For all subsequent versions the difference to the last published
+version should be described as concrete as possible.</p>
+<p>For pre-release versions, the changes are registered in the entry of
+the next version to be released.</p>
+<p><em>Example:</em></p>
+<p>For version 1.1.0-1 (draft for 1.1.0) the changes are registered in
+the entry for version 1.1.0.</p>
+<h1 data-number="2" id="product-tree"><span
+class="header-section-number">2</span> Product Tree</h1>
+<p>The product tree holds all definitions of products referenced later
+on in the CSAF document. This is independent of the products’
+status.</p>
+<p>It is recommended to model a hierarchical structure by means of
+branches in the <code>product_tree</code>. The branch structure
+typically consists of vendor, product name and product version. A
+product family can also be listed between the vendor and product name.
+This simplifies grouping and display in a human-readable advisory. The
+structure depends strongly on the structure of the products and how they
+are known by the consumers of the advisories.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li>There is a product family with only 2 products that are relevant for
+the advisory, then the product family does not necessarily have to be
+listed.</li>
+<li>For a product family with 120 products for which the advisory
+applies, the strong recommendation is to list the family as well.</li>
+</ul>
+<p>In principle software and hardware components are to be represented
+separately, since hardware remains the same, even if software is
+updated. This also allows separation of software that may run on
+multiple hardware installations. The connections of hardware and
+software are to be represented over
+<code>/product_tree/relationships</code>.</p>
+<p>The <code>product_identification_helper</code> facilitates the
+matching between the advisory and the asset or SBOM database.</p>
+<p><em>Example:</em></p>
+<ul>
+<li>If the name of a company changes due to an acquisition, the name
+would in principle be changed from a certain version of the product. In
+fact, however, other more far-reaching name changes may occur, which
+should be modelled here.</li>
+</ul>
+<p><em>Additional for profile CSAF Informational Advisory</em></p>
+<p>If a <code>product_tree</code> is listed in an advisory with profile
+<code>CSAF Informational Advisory</code>, then the listed products are
+all products to which the advisory applies.</p>
+<h2 data-number="2.1" id="branches"><span
+class="header-section-number">2.1</span> Branches</h2>
+<p>Branches are used to model a hierarchical product tree.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-8">types</a>.</p>
+<h2 data-number="2.2" id="full-product-name"><span
+class="header-section-number">2.2</span> Full Product Name</h2>
+<p>Products which are used in relationships, such as hotfix or operating
+systems.</p>
+<p>Used when branches are not assignable.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-9">types</a>.</p>
+<h2 data-number="2.3" id="product-groups"><span
+class="header-section-number">2.3</span> Product Groups</h2>
+<p>There is no usage documentation yet.</p>
+<h3 data-number="2.3.1" id="product-groups-1"><span
+class="header-section-number">2.3.1</span> Product Groups</h3>
+<p>There is no usage documentation yet.</p>
+<h4 data-number="2.3.1.1" id="group-id"><span
+class="header-section-number">2.3.1.1</span> Group ID</h4>
+<p>Uniquely identifies a group of products throughout the document.</p>
+<p>To make it easier to find errors, it is recommended to use a prefix
+to distinguish from product IDs.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-10">types</a>.</p>
+<h4 data-number="2.3.1.2" id="product-id"><span
+class="header-section-number">2.3.1.2</span> Product ID</h4>
+<p>All IDs of products that belong to this group.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-11">types</a>.</p>
+<h4 data-number="2.3.1.3" id="summary"><span
+class="header-section-number">2.3.1.3</span> Summary</h4>
+<p>Describes the common features of the products grouped together in the
+product group. Typical summaries are
+e.g. <code>End of Life products</code>, <code>product families</code>,
+<code>affected products</code> or <code>patched products</code>.</p>
+<p>Reduces the effort needed to list products for
+<code>remediations</code>, <code>flags</code> and
+<code>threats</code>.</p>
+<h2 data-number="2.4" id="relationships"><span
+class="header-section-number">2.4</span> Relationships</h2>
+<p>Used to model relationships between two products of the
+<code>product_tree</code>. This could be for example a connection of
+hard- and software or firmware.</p>
+<p>Hardware and corresponding software shall be listed separately with a
+relationship to connect them.</p>
+<p>As a model number (usually) does not change as a result of an update
+it cannot be determined automatically whether an affected or unaffected
+part is present. Thus, a relationship is required to model corresponding
+software.</p>
+<p>A relationship can also be used in cases of OS dependent
+vulnerabilities or to represent hotfixes.</p>
+<h3 data-number="2.4.1" id="relationship"><span
+class="header-section-number">2.4.1</span> Relationship</h3>
+<p>A relationship read as
+<code>&lt;product_reference&gt; &lt;category&gt; &lt;relates_to_product_reference&gt;</code></p>
+<p>Relationships are especially useful for hotfixes where the vulnerable
+product is <code>installed_with</code> the fix.</p>
+<p><em>Example:</em></p>
+<ul>
+<li><code>product A installed with product B</code></li>
+</ul>
+<h4 data-number="2.4.1.1" id="category"><span
+class="header-section-number">2.4.1.1</span> Category</h4>
+<p>Specifies the connection between the named products.</p>
+<h4 data-number="2.4.1.2" id="product-reference"><span
+class="header-section-number">2.4.1.2</span> Product Reference</h4>
+<p>The ID of the product that is stated before the relationship’s
+category.</p>
+<p>There must be a corresponding <code>full_product_name</code> element
+with matching <code>product_id</code> in the product tree.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-12">types</a>.</p>
+<h4 data-number="2.4.1.3" id="relates-to-product-reference"><span
+class="header-section-number">2.4.1.3</span> Relates To Product
+Reference</h4>
+<p>The ID of the product that is stated after the relationship’s
+category.</p>
+<p>There must be a corresponding <code>full_product_name</code> element
+with matching <code>product_id</code> in the product tree.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-13">types</a>.</p>
+<h4 data-number="2.4.1.4" id="full-product-name-1"><span
+class="header-section-number">2.4.1.4</span> Full Product Name</h4>
+<p>Denotes the new product formed by the relationship.</p>
+<p>Multiple levels are allowed, such that the new product can be used
+again in a relationship.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-14">types</a>.</p>
+<h1 data-number="3" id="types"><span
+class="header-section-number">3</span> Types</h1>
+<p>This section contains usage information for elements that are used
+multiple times throughout the document. To prevent repetitions they will
+be described here once. They will be referenced in the document where
+needed.</p>
+<p><span id="md-merge-link-1"></span> <span
+id="md-merge-link-2"></span></p>
+<p><strong>Lang</strong></p>
+<p>The used value should be a valid language code and should not contain
+subtags reserved for private use.</p>
+<p>Subtypes that are reserved for private use (e.g. <code>qtx</code>)
+and <code>i-default</code> should not be used.</p>
+<p><span id="md-merge-link-10"></span></p>
+<p><strong>Product Group ID</strong></p>
+<p>The same <code>group_id</code> must not be defined more than once in
+the same document.</p>
+<p><span id="md-merge-link-20"></span> <span
+id="md-merge-link-30"></span> <span id="md-merge-link-33"></span></p>
+<h2 data-number="3.1" id="product-groups-2"><span
+class="header-section-number">3.1</span> Product Groups</h2>
+<p>Allows grouping of products with similarities. This is useful to
+reduce the effort required to list products, e.g. for remediations,
+flags and threats.</p>
+<p><span id="md-merge-link-11"></span> <span
+id="md-merge-link-12"></span> <span id="md-merge-link-13"></span> <span
+id="md-merge-link-16"></span></p>
+<p><strong>Product ID</strong></p>
+<p>The product ID is used to reference the product later in the document
+and there is no specified format. The value is usually assigned by the
+generator. To make it easier to find errors, it is recommended to use a
+prefix to distinguish from product group IDs.</p>
+<p>The same <code>product_id</code> must not be defined more than once
+in the same document.</p>
+<p>The <code>product_id</code> should be referenced somewhere within the
+same documents.</p>
+<p><em>Additional for profile CSAF Informational Advisory</em></p>
+<p>The requirement for the <code>product_id</code> to be referenced
+somewhere within the same documents does not hold for the
+<code>csaf_informational_advisory</code> profile. Per profile definition
+the information mentioned in such a CSAF document is applicable to all
+products listed in the product tree.</p>
+<p><span id="md-merge-link-21"></span> <span
+id="md-merge-link-22"></span> <span id="md-merge-link-23"></span> <span
+id="md-merge-link-24"></span> <span id="md-merge-link-25"></span> <span
+id="md-merge-link-26"></span> <span id="md-merge-link-27"></span> <span
+id="md-merge-link-28"></span> <span id="md-merge-link-29"></span> <span
+id="md-merge-link-31"></span> <span id="md-merge-link-32"></span> <span
+id="md-merge-link-34"></span></p>
+<h2 data-number="3.2" id="products"><span
+class="header-section-number">3.2</span> Products</h2>
+<p>There is no usage documentation yet.</p>
+<p><span id="md-merge-link-6"></span> <span
+id="md-merge-link-7"></span></p>
+<p><strong>Version</strong></p>
+<p>The version must follow either <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#31112-version-type---semantic-versioning">integer
+versioning</a> or <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html#31111-version-type---integer-versioning">semantic
+versioning</a> homogeneously within the same document.</p>
+<p><span id="md-merge-link-3"></span> <span
+id="md-merge-link-19"></span></p>
+<h2 data-number="3.3" id="acknowledgments-1"><span
+class="header-section-number">3.3</span> Acknowledgments</h2>
+<p>There is no usage documentation yet.</p>
+<h3 data-number="3.3.1" id="acknowledgment"><span
+class="header-section-number">3.3.1</span> Acknowledgment</h3>
+<p>An acknowledgment of a contributor or organization that contributed
+to the document or a vulnerability.</p>
+<p>It is important that listed parties agreed to their mention. Mentions
+based on publicly available papers or the like do not require explicit
+consent. In accordance with applicable policies, internal employees of
+an organization may be listed individually (see example 3.1.1.5 of the
+specification).</p>
+<p><strong>Organization</strong></p>
+<p>Single organizations or affiliations of names to this
+organization.</p>
+<p><strong>Summary</strong></p>
+<p>Summarizes the contribution.</p>
+<h4 data-number="3.3.1.1" id="names"><span
+class="header-section-number">3.3.1.1</span> Names</h4>
+<p>Names of the individual contributors, no organization names.</p>
+<p><strong>Name</strong></p>
+<p>The name of the acknowledged person or entity.</p>
+<h4 data-number="3.3.1.2" id="urls"><span
+class="header-section-number">3.3.1.2</span> URLs</h4>
+<p>A list of URLs.</p>
+<p><strong>URL</strong></p>
+<p>Link to a contributor’s website.</p>
+<p><em>Example:</em></p>
+<ul>
+<li><a href="https://cisa.gov">https://cisa.gov</a></li>
+</ul>
+<h2 data-number="3.4" id="branches-1"><span
+class="header-section-number">3.4</span> Branches</h2>
+<p>Branches are used to model a hierarchical product tree.</p>
+<p><span id="md-merge-link-8"></span></p>
+<h3 data-number="3.4.1" id="branch"><span
+class="header-section-number">3.4.1</span> Branch</h3>
+<p>The branches are used to model a hierarchical product tree.</p>
+<p>Branches are preferred over <code>full_product_names</code>.</p>
+<p>Products should be listed according to their version. Specifying
+exact product versions is preferred over specifying version ranges.
+Enumerating the products is usually easier to match on the recipients
+side. Additionally, not all version ranges are deterministic.</p>
+<p>Since not all required data may yet be available, version ranges are
+still supported. If version ranges are used, the Version Range Specifier
+(VERS) should be preferred. If this is not possible, the rules of the
+Version Range Like Specifier (VLS) apply.</p>
+<p>It is possible that the exact version that is affected is not known.
+In this case a version range can be used.</p>
+<p><em>Example:</em></p>
+<p>Version 4.2 of a product may be affected and version 4.3 contains a
+patch.</p>
+<ul>
+<li>Version 4.3 listed as fixed product version
+<ul>
+<li>if it is not known since which version the product is affected
+<ul>
+<li>&lt;=4.2 (range) listed as affected</li>
+<li>or all versions below listed individually</li>
+</ul></li>
+<li>if it is known since which version the product is affected, the
+given range or listed versions should be adjusted accordingly</li>
+</ul></li>
+</ul>
+<p>Hotfixes should be represented through the relationships. The product
+without and with hotfix are listed, the first in the
+<code>affected</code> product status group, the latter in the
+<code>fixed</code> group.</p>
+<p><strong>Category</strong></p>
+<p>Specifies how the value in the adjacent name field should be
+understood.</p>
+<p>If the value is <code>product_version</code>, the property
+<code>name</code> must not contain a version range. The following
+patterns are considered to indicate a version range:</p>
+<ul>
+<li><code>&lt;</code></li>
+<li><code>&lt;=</code></li>
+<li><code>&gt;</code></li>
+<li><code>&gt;=</code></li>
+<li><code>after</code></li>
+<li><code>all</code></li>
+<li><code>before</code></li>
+<li><code>earlier</code></li>
+<li><code>later</code></li>
+<li><code>prior</code></li>
+<li><code>versions</code></li>
+</ul>
+<p><strong>Name</strong></p>
+<p>The value is further defined by the branch’s category.</p>
+<p>If the <code>category</code> is <code>product_version_range</code>,
+the <code>name</code> should conform to the VERS specification,
+i.e. match the regex
+<code>^vers:[a-z\\.\\-\\+][a-z0-9\\.\\-\\+]*/.+</code></p>
+<h4 data-number="3.4.1.1" id="product"><span
+class="header-section-number">3.4.1.1</span> Product</h4>
+<p>A leaf in the hierarchical structure of branches, includes exactly
+one product. This product can be a single version or a range of
+versions.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-15">types</a>.</p>
+<p><span id="md-merge-link-9"></span> <span
+id="md-merge-link-14"></span> <span id="md-merge-link-15"></span></p>
+<h2 data-number="3.5" id="full-product-name-2"><span
+class="header-section-number">3.5</span> Full Product Name</h2>
+<p>The property <code>product_identification_helper</code> should exist
+and contain at least one item.</p>
+<p><strong>Name</strong></p>
+<p>The name of the product as used in a human-readable advisory.</p>
+<p>In the branch hierarchy this name can be formed by stringing the
+<code>name</code> elements along the path to the leaf.</p>
+<p><strong>Product Id</strong></p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-16">types</a>.</p>
+<h3 data-number="3.5.1" id="product-identification-helper"><span
+class="header-section-number">3.5.1</span> Product Identification
+Helper</h3>
+<p>A collection of different possibilities to identify a product in the
+asset database or SBOM.</p>
+<p>When it is used to identify a new product formed by a relationship no
+value must be the same to any of the products that make up the
+relationship. Otherwise, a matching would return misleading results.</p>
+<p><em>Example</em>:</p>
+<p>There is an application (<code>Product A</code>) that has the same
+hash on Linux and Windows and a vulnerability is found that affects the
+program when being executed on Windows but not on Linux. If the same
+hash would be linked in the relationship that forms the products
+<code>Product A installed on Windows</code> and
+<code>Product A installed on Linux</code>, a matching algorithm would
+return the same list of assets for all 3 product IDs. However, that is
+an ambiguous match.</p>
+<p><strong>Cpe</strong></p>
+<p>Common Platform Enumeration, see <a
+href="https://cpe.mitre.org/specification/">cpe.mitre.org</a>. Can be
+CPE 2.2 and CPE 2.3, while 2.3 is preferred.</p>
+<p>When using CPE, please be aware of the limitations and that it might
+be deprecated in the future.</p>
+<p><strong>Purl</strong></p>
+<p>A purl is a URL composed of seven components which are separated by a
+specific character for unambiguous parsing:</p>
+<pre class="text"><code>scheme:type/namespace/name@version?qualifiers#subpath</code></pre>
+<p>The definition for each component is:</p>
+<ul>
+<li><code>scheme</code>: this is the URL scheme with the constant value
+of “pkg”. One of the primary reason for this single scheme is to
+facilitate the future official registration of the “pkg” scheme for
+package URLs. Required.</li>
+<li><code>type</code>: the package “type” or package “protocol” such as
+maven, npm, nuget, gem, pypi, etc. Required.</li>
+<li><code>namespace</code>: some name prefix such as a Maven groupid, a
+Docker image owner, a GitHub user or organization. Optional and
+type-specific.</li>
+<li><code>name</code>: the name of the package. Required.</li>
+<li><code>version</code>: the version of the package. Optional.</li>
+<li><code>qualifiers</code>: extra qualifying data for a package such as
+an OS, architecture, a distro, etc. Optional and type-specific.</li>
+<li><code>subpath</code>: extra subpath within a package, relative to
+the package root. Optional.</li>
+</ul>
+<p>Components are designed such that they form a hierarchy from the most
+significant component on the left to the least significant component on
+the right.</p>
+<p>A purl must NOT contain a URL Authority i.e. there is no support for
+username, password, host and port components. A namespace segment may
+sometimes look like a host but its interpretation is specific to a type.
+Also, a purl does not contain double slashes <code>//</code>, that is
+the scheme is <code>pkg:</code>. There</p>
+<p>Purls are particularly well suited for identifying components within
+the package types supported by purl.</p>
+<h4 data-number="3.5.1.1" id="hashes"><span
+class="header-section-number">3.5.1.1</span> Hashes</h4>
+<p>Hashes are particularly well suited for the identification of
+software.</p>
+<h5 data-number="3.5.1.1.1" id="hash"><span
+class="header-section-number">3.5.1.1.1</span> Hash</h5>
+<p>There is no usage documentation yet.</p>
+<p><strong>Filename</strong></p>
+<p>Specifies the file name over which the hash was formed.</p>
+<h6 data-number="3.5.1.1.1.1" id="file-hashes"><span
+class="header-section-number">3.5.1.1.1.1</span> File Hashes</h6>
+<p>Since collision attacks exist for <code>md5</code> and
+<code>sha1</code>, these should not be the only hash algorithms present.
+Either of those should be accompanied by a second cryptographically
+stronger hash.</p>
+<p>The same hash algorithm must not be used in multiple items in one
+item of hashes belonging to one file.</p>
+<p class="heading" data-number="3.5.1.1.1.1.1" id="file-hash"><span
+class="header-section-number">3.5.1.1.1.1.1</span> File Hash</p>
+<p>The hash of a file consisting of the used algorithm and resulting
+hash value.</p>
+<p><strong>Algorithm</strong></p>
+<p>Cryptographically secure algorithms should be preferred to avoid
+misidentification through hash collision. Currently, the algorithms
+SHA256, SHA512 and SHA3 are recommended.</p>
+<p><strong>Value</strong></p>
+<p>The hash value should not be shorter than 64 characters.</p>
+<h4 data-number="3.5.1.2" id="model-numbers"><span
+class="header-section-number">3.5.1.2</span> Model Numbers</h4>
+<p>Model numbers are particularly well suited for the identification of
+hardware.</p>
+<p>Software installed on the hardware must be mapped via relationships
+(<code>/product_tree/relationships</code>).</p>
+<p><strong>Model Number</strong></p>
+<p>Should not be version strings of products.</p>
+<h4 data-number="3.5.1.3" id="sbom-urls"><span
+class="header-section-number">3.5.1.3</span> SBOM Urls</h4>
+<p>There is no usage documentation yet.</p>
+<p><strong>SBOM Url</strong></p>
+<p>If a SBOM is offered for download (publicly or protected), the URL
+can serve as a unique identifier for the version of the product that the
+SBOM describes. If it links to a protected area, the URL must still
+point to the canonical download value (not just to the portal where it
+is retrieved), otherwise uniqueness is lost.</p>
+<p>A SBOM URL should not be used in combination with a product version
+range.</p>
+<h4 data-number="3.5.1.4" id="serial-numbers"><span
+class="header-section-number">3.5.1.4</span> Serial Numbers</h4>
+<p>Serial numbers are particularly well suited for the identification of
+hardware. Software installed on that hardware must be mapped via
+relationships (<code>/product_tree/relationships</code>).</p>
+<p>Serial numbers are especially useful for end-of-life products, or if
+a series of product instances cannot be provided with an update due to
+production or technical characteristics.</p>
+<p><strong>Serial Number</strong></p>
+<p>There is no usage documentation yet.</p>
+<h4 data-number="3.5.1.5" id="skus"><span
+class="header-section-number">3.5.1.5</span> SKUs</h4>
+<p>SKUs are particularly well suited for products in direct sales.</p>
+<p>SKUs provide the customer with the option to identify the product via
+the information available from the ordering process.</p>
+<p><strong>SKU</strong></p>
+<p>There is no usage documentation yet.</p>
+<h4 data-number="3.5.1.6" id="generic-uris"><span
+class="header-section-number">3.5.1.6</span> Generic URIs</h4>
+<p>Generic URIs are used to identify components within a SBOM
+(especially relevant for the VEX use case). For CycloneDX and SPDX
+examples refer to <a
+href="https://docs.oasis-open.org/csaf/csaf/v2.0/cs02/csaf-v2.0-cs02.html#31338-full-product-name-type---product-identification-helper---generic-uris">the
+specification</a>.</p>
+<p>It can also be used for manufacturer-specific product identifiers not
+yet supported.</p>
+<h5 data-number="3.5.1.6.1" id="generic-uri"><span
+class="header-section-number">3.5.1.6.1</span> Generic URI</h5>
+<p>There is no usage documentation yet.</p>
+<p><strong>Namespace</strong></p>
+<p>Specifies the URL where the value of the URI is valid and describes
+how to use the value. See examples 16 and 17 from the specification.</p>
+<p><strong>URI</strong></p>
+<p>Identifier for a product that is valid in the context of the
+specification given under <code>namespace</code>.</p>
+<p><span id="md-merge-link-4"></span> <span
+id="md-merge-link-17"></span></p>
+<h2 data-number="3.6" id="notes-1"><span
+class="header-section-number">3.6</span> Notes</h2>
+<p>A note with category <code>summary</code> should consist of two to
+three sentences with barely any technical detail.</p>
+<p>A note with category <code>description</code> should consist of one
+to three paragraphs with possibly some technical detail.</p>
+<p>A note with category <code>details</code> should contain a detailed
+description, exceeding the length of a <code>description</code> and go
+deeper into technical details.</p>
+<p>Basically, at least one summary should be listed, a description is
+preferred.</p>
+<h3 data-number="3.6.1" id="note"><span
+class="header-section-number">3.6.1</span> Note</h3>
+<p>There is no usage documentation yet.</p>
+<p><strong>Audience</strong></p>
+<p>Describes for whom this text was written.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li><code>all</code></li>
+<li><code>executives</code></li>
+<li><code>operational management and system administrators</code></li>
+<li><code>safety engineers</code></li>
+</ul>
+<p>Should be specified in particular if different target groups are
+addressed in the CSAF document and different texts exist for these
+target groups.</p>
+<p><em>Example:</em></p>
+<p>An executive summary will have different content than a note on
+technical details.</p>
+<p><strong>Category</strong></p>
+<p>Defines the general category of the note.</p>
+<p><strong>Text</strong></p>
+<p>Content of the note. Scope and depth are determined by the note’s
+category.</p>
+<p>The format can be plain text or markdown. HTML is not allowed.</p>
+<p><strong>Title</strong></p>
+<p>Should describe the content of the note concisely.</p>
+<p><span id="md-merge-link-5"></span> <span
+id="md-merge-link-18"></span></p>
+<h2 data-number="3.7" id="references-1"><span
+class="header-section-number">3.7</span> References</h2>
+<p>There is no usage documentation yet.</p>
+<h3 data-number="3.7.1" id="reference"><span
+class="header-section-number">3.7.1</span> Reference</h3>
+<p>There is no usage documentation yet.</p>
+<h4 data-number="3.7.1.1" id="category-1"><span
+class="header-section-number">3.7.1.1</span> Category</h4>
+<p>The category of a reference should always be specified to be
+explicit.</p>
+<p><code>external</code>: links e.g. to a support article describing
+installation and update procedures, where descriptions of hotfixes can
+be found or to a description of restart procedures</p>
+<p><code>self</code>: links e.g. to exactly the same vulnerability in
+the human readable advisory</p>
+<p>For vulnerabilities, usually the category refers to an
+<code>external</code> reference. For the document references with
+category <code>self</code> are more common.</p>
+<p>In the document references the canonical URL and reference of
+human-readable advisory must have category <code>self</code>. All other
+references usually are <code>external</code>.</p>
+<h4 data-number="3.7.1.2" id="summary-1"><span
+class="header-section-number">3.7.1.2</span> Summary</h4>
+<p>A meaningful title or short summary of the reference.</p>
+<p>For web pages it’s often the page title from the HTML metadata. For
+other documents it’s the document’s title.</p>
+<p>For different formats of advisories the title or summary has the
+following format:</p>
+<p><code>ID: TITLE - FORMAT</code></p>
+<p>where <code>ID</code> is the value of
+<code>/document/tracking/id</code>, <code>TITLE</code> is optional and
+the value of <code>/document/title</code> and <code>FORMAT</code> is one
+of <code>PDF</code>, <code>TXT</code>, <code>CSAF</code> or
+<code>HTML</code>.</p>
+<p>If different versions of the document reside under different URLs,
+the value of <code>/document/tracking/version</code> should be appended
+as <code>- version VERSION</code> after <code>FORMAT</code>. If the
+latest version is always at the same URL, the <code>VERSION</code> part
+can be identified as <code>- latest version</code></p>
+<h4 data-number="3.7.1.3" id="url"><span
+class="header-section-number">3.7.1.3</span> Url</h4>
+<p>The URL of the reference.</p>
+<h1 data-number="4" id="vulnerabilities"><span
+class="header-section-number">4</span> Vulnerabilities</h1>
+<p>The list of vulnerabilities contains all the information that helps
+to describe vulnerabilities and their impact and remediations.</p>
+<p><em>Additional for profile CSAF Informational Advisory</em></p>
+<p>The <code>csaf_informational_advisory</code> profile deals with
+information that are not classified as vulnerabilities. Therefore, it
+must not have the <code>/vulnerabilities</code> element. If there is a
+vulnerability, another profile, e.g. <code>csaf_security_advisory</code>
+should be selected.</p>
+<p><em>Additional for profile CSAF Security Advisory</em></p>
+<p>The <code>csaf_security_advisory</code> profile deals with
+vulnerabilities. Therefore, it must have the
+<code>/vulnerabilities</code> element.</p>
+<p><em>Additional for profile CSAF VEX</em></p>
+<p>The <code>csaf_vex</code> profile deals with vulnerabilities.
+Therefore, it must have the <code>/vulnerabilities</code> element.</p>
+<h2 data-number="4.1" id="vulnerability"><span
+class="header-section-number">4.1</span> Vulnerability</h2>
+<p>It is recommended to provide a CVE number (<code>cve</code>) to
+support the users efforts to find more details about a vulnerability and
+potentially track it through multiple advisories. If no CVE exists for
+that vulnerability, it is recommended to get one assigned.</p>
+<p>A CWE number (<code>cwe</code>) should be given.</p>
+<p><em>Additional for profile CSAF Security Advisory</em></p>
+<p>For the <code>csaf_security_advisory</code> profile there must be a
+<code>notes</code> and <code>product_status</code> property for a
+vulnerability.</p>
+<p><em>Additional for profile CSAF VEX</em></p>
+<p>For the <code>csaf_vex</code> profile there must be a
+<code>notes</code> and <code>product_status</code> property for a
+vulnerability.</p>
+<p>For the <code>csaf_vex</code> profile at least one of the properties
+<code>cve</code> or <code>ids</code> must be present.</p>
+<p><strong>CVE</strong></p>
+<p>CVE numbers help to identify the vulnerability and ensure the same
+terms are used.</p>
+<p>The same CVE must not be repeated for multiple vulnerability
+items.</p>
+<p>CVE numbers should also be assigned for vulnerabilities found
+internally.</p>
+<p>CVE numbers can be requested from MITRE or another CNA (CVE Numbering
+Authority). If organizations regularly publish vulnerabilities, they
+should consider becoming a CNA, as described <a
+href="https://www.cve.org/PartnerInformation/Partner#HowToBecomeAPartner">here</a>.</p>
+<p><strong>Discovery Date</strong></p>
+<p>The discovery date specifies when the vulnerability was
+discovered.</p>
+<p>For logical reasons the value can not be a timestamp in the
+future.</p>
+<h3 data-number="4.1.1" id="notes-2"><span
+class="header-section-number">4.1.1</span> Notes</h3>
+<p>The notes should contain information about the vulnerability. This
+can be available in different levels of detail.</p>
+<p>A Note adding a CVE description is recommended. The title of this
+note should be <code>CVE description</code> and the category should be
+set as <code>description</code>. For a summary of the vulnerability, a
+note with title <code>Vulnerability summary</code> and category
+<code>summary</code> should be created.</p>
+<p>The impact of the vulnerability should be listed as a threat
+(<code>/vulnerabilities[]/threats</code>) with category
+<code>impact</code>.</p>
+<p>For vulnerabilities there should be no note with category
+<code>legal_disclaimer</code>.</p>
+<p>For the <code>csaf_security_advisory</code> profile
+<code>notes</code> must exist.</p>
+<p>For the <code>csaf_vex</code> profile <code>notes</code> must
+exist.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-17">types</a>.</p>
+<p><em>Additional for profile CSAF Security Advisory</em></p>
+<p>For the <code>csaf_security_advisory</code> profile
+<code>/vulnerabilities[]/notes</code> must exist.</p>
+<p><em>Additional for profile CSAF VEX</em></p>
+<p>For the <code>csaf_vex</code> profile
+<code>/vulnerabilities[]/notes</code> must exist.</p>
+<h3 data-number="4.1.2" id="references-2"><span
+class="header-section-number">4.1.2</span> References</h3>
+<p>A reference to the JSON of the CVE entry should be listed.</p>
+<p>Additional information about the vulnerability can be listed:</p>
+<ul>
+<li>additional help articles on the vulnerability</li>
+<li>Knowledge Base articles</li>
+<li>link to the bug tracking issue</li>
+<li>link to a pull/merge request if publicly available</li>
+<li>…</li>
+</ul>
+<p>A website of the discoverer of the vulnerability may also be
+linked.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-18">types</a>.</p>
+<p><strong>Release Date</strong></p>
+<p>Specifies since when the vulnerability has been publicly known.</p>
+<p><strong>Title</strong></p>
+<p>The title of the vulnerability.</p>
+<h3 data-number="4.1.3" id="acknowledgments-2"><span
+class="header-section-number">4.1.3</span> Acknowledgments</h3>
+<p>Acknowledgements of contributors specific to this vulnerability.</p>
+<p>If a party would be mentioned in all vulnerabilities of the advisory,
+it should be considered to mention it in
+<code>/document/acknowledgements</code>. A double mention is valid,
+though.</p>
+<p>The same notes apply as for
+<code>/document/acknowledgments</code>.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-19">types</a>.</p>
+<h3 data-number="4.1.4" id="cwe"><span
+class="header-section-number">4.1.4</span> CWE</h3>
+<p>CWE is a community-developed list of software and hardware weakness
+types. It serves as a common language, a measuring stick for security
+tools, and as a baseline for weakness identification, mitigation, and
+prevention efforts. (Cited from <a
+href="https://cwe.mitre.org/">cwe.mitre.org</a>)</p>
+<p>The Vulnerability classification of CWE helps assess groups of
+vulnerabilities.</p>
+<p>The CWE that most accurately identifies the vulnerability should be
+chosen and the given CWE must exist and be valid.</p>
+<p>A link to the used CWE should be provided in the vulnerability’s
+references.</p>
+<p><strong>Id</strong></p>
+<p>The ID from the CWE catalogue.</p>
+<p><strong>Name</strong></p>
+<p>The full name as given in the specification.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li><code>CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')</code></li>
+</ul>
+<h3 data-number="4.1.5" id="flags"><span
+class="header-section-number">4.1.5</span> Flags</h3>
+<p>Machine-readable assessment of why a product is not affected.</p>
+<p>Should not be set without a human-readable impact statement (in
+<code>/vulneratbilities[]/threats</code>).</p>
+<p>The use of flags is recommended for more mature ProductCERTs.</p>
+<p>May be extended in later versions of the standard.</p>
+<h4 data-number="4.1.5.1" id="flag"><span
+class="header-section-number">4.1.5.1</span> Flag</h4>
+<p>Each flag must include at least one of the elements
+<code>group_ids</code> or <code>product_ids</code>. Using the
+<code>product_ids</code> is slightly preferred.</p>
+<p>A product must not be listed as member of more than one flag item
+with a VEX justification code. This also includes indirect relations
+through product groups.</p>
+<p><strong>Date</strong></p>
+<p>The date when the flag was set or an analysis was carried out that
+led to setting the flag.</p>
+<p><strong>Group IDs</strong></p>
+<p>List of group IDs to which the flag applies.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-20">types</a>.</p>
+<p><strong>Label</strong></p>
+<p>Describes the most appropriate reason why the vulnerability is not
+exploitable in machine-readable form.</p>
+<p>If there is no machine-readable status justification available that
+fits the reason, the impact statement must be done through an element in
+<code>/vulnerabilities[]/threats</code> with category
+<code>impact</code> and the description in <code>details</code>.</p>
+<p><strong>Product Ids</strong></p>
+<p>List of product IDs to which the flag applies.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-21">types</a>.</p>
+<h3 data-number="4.1.6" id="ids"><span
+class="header-section-number">4.1.6</span> Ids</h3>
+<p>Lists more IDs apart from CVE.</p>
+<p><em>Examples:</em></p>
+<ul>
+<li>ID of a ticket in a bug tracker</li>
+<li>ID of a Pull Request in a code repository</li>
+</ul>
+<h4 data-number="4.1.6.1" id="id"><span
+class="header-section-number">4.1.6.1</span> ID</h4>
+<p><strong>System Name</strong></p>
+<p>Specifies the environment in which the ID under <code>text</code> is
+valid.</p>
+<p><strong>Text</strong></p>
+<p>Ticket number or identifier in the bug tracker.</p>
+<p>It can also be an ID of support tickets or knowledge base
+articles.</p>
+<p>The value should not be a CVE ID.</p>
+<p>The CVE ID for a vulnerability must be listed in the <code>cve</code>
+property.</p>
+<h3 data-number="4.1.7" id="involvements"><span
+class="header-section-number">4.1.7</span> Involvements</h3>
+<p>The list of involvements must not contain the same <code>party</code>
+regardless of its <code>status</code> more than once at any
+<code>date</code>.</p>
+<p>Can be used to document the disclosure timeline. Who contacted whom
+and when, who learned about the vulnerability and what actions were
+taken.</p>
+<p>Should be used especially if the vendor did not respond to the
+contact attempts or denies the existence of the vulnerability or the CVD
+process failed.</p>
+<h4 data-number="4.1.7.1" id="involvement"><span
+class="header-section-number">4.1.7.1</span> Involvement</h4>
+<p>For temporal classification, a <code>date</code> should be given.</p>
+<p><strong>Date</strong></p>
+<p>The date when the action happened, the date when the contact was
+made, or the date when the producer contacted back and rejected the
+report.</p>
+<p><strong>Party</strong></p>
+<p>Defines the category to which the party belongs about which a
+statement is made.</p>
+<p><strong>Status</strong></p>
+<p>Defines the contact status the party is in at the time of
+writing.</p>
+<ul>
+<li><code>in_progress</code>: Is suitable in many situations, e.g. when
+there is a hotfix, when feedback has been received, when more
+information is needed, …</li>
+<li><code>contact_atempted</code>: This status indicates that a contact
+has been attempted. If possible, it should be documented how the contact
+was attempted.</li>
+<li><code>not_contacted</code>: It should be documented why no contact
+was made.</li>
+<li><code>disputed</code>: It should be indicated why the party does not
+consider this to be a vulnerability, or why the vulnerability has no
+implication on security.</li>
+<li><code>completed</code>: The party asserts investigation of the
+vulnerability to be complete.</li>
+<li><code>open</code> The party has acknowledged awareness of the
+vulnerability report.</li>
+</ul>
+<p>The statuses <code>contact_atempted</code> and
+<code>not_contacted</code> should not be specified by the vendor.</p>
+<p><strong>Summary</strong></p>
+<p>A summary that briefly describes what the status is all about.</p>
+<h3 data-number="4.1.8" id="product-status"><span
+class="header-section-number">4.1.8</span> Product Status</h3>
+<p>The product status provides information on the status products in the
+<code>product_tree</code> are in.</p>
+<p>Generally, vulnerable (<code>known_affected</code>) and fixed
+(<code>fixes</code>) versions of products should be given.</p>
+<p>The different lists of product status groups contain the IDs of
+corresponding products. The same product ID must not be member of
+contradicting product status groups. I.e. a product listed in the group
+of <em>affected</em> products must not be listed again in the group of
+<em>not affected</em> products.</p>
+<p>The contradicting groups are</p>
+<ul>
+<li><p><em>affected</em></p>
+<ul>
+<li><code>product_status/first_affected[]</code></li>
+<li><code>product_status/known_affected[]</code></li>
+<li><code>product_status/last_affected[]</code></li>
+</ul></li>
+<li><p><em>not affected</em></p>
+<ul>
+<li><code>product_status/known_not_affected[]</code></li>
+</ul></li>
+<li><p><em>fixed</em></p>
+<ul>
+<li><code>product_status/first_fixed[]</code></li>
+<li><code>product_status/fixed[]</code></li>
+</ul></li>
+<li><p><em>under investigation</em></p>
+<ul>
+<li><code>product_status/under_investigation[]</code></li>
+</ul></li>
+</ul>
+<p>Each product listed in the <em>affected</em> group should be
+referenced in at least one remediation item
+(<code>/vulnerabilities[]/remediations</code>).</p>
+<p>For each product listed in the <em>not affected</em> group, the
+reason why it is not affected should be given. This reason, also called
+impact statement, should be listed in the threats
+(<code>/vulnerabilities[]/threats</code>) with category
+<code>impact</code> or as machine-readable status justification in the
+flags (<code>/vulnerabilities[]/flags</code>). It is recommended to use
+both, when applicable.</p>
+<p>The status <code>known_not_affected</code> is used in the context of
+security advisories to exclude individual products. This is mainly used
+for products one could assume to be affected. To define general
+non-affectedness, the VEX profile should be used.</p>
+<p>An issuer might recommend (<code>product_status/recommended</code>) a
+product version from any group. If more than one product version is
+patched, the author should also specify which version is recommended. A
+recommended product version can also come from the <em>affected</em>
+group, i.e. if it was discovered that fixed versions introduce a more
+severe vulnerability. If there are two patched versions of a
+vulnerability that contain different vulnerabilities, the
+<code>recommended</code> field can also be used to specify which version
+is recommended for use.</p>
+<p>Version boundaries can be represented in the <code>first_*</code> and
+<code>last_*</code> fields. For simplification, elements from
+<code>first_*</code> and <code>last_*</code> should also be listed in
+the main groups <code>known_*</code>.</p>
+<p>For products listed in <code>under_investigation</code> it is
+expected that the outcome of analysis are reported in a later version of
+the document.</p>
+<p>For the <code>csaf_security_advisory</code> profile the property
+<code>product_status</code> must exist.</p>
+<p>For the <code>csaf_vex</code> profile at least one of the elements
+<code>fixed</code>, <code>known_affected</code>,
+<code>known_not_affected</code> or <code>under_investigation</code> must
+be present.</p>
+<p><strong>First Affected</strong></p>
+<p>The product version that was affected first or with which product
+version the vulnerability was introduced. All previous versions are
+assumed to be unaffected.</p>
+<p>The first affected version can also be an “End of Life” version.</p>
+<p>A product listed here must not be listed in any of the following</p>
+<ul>
+<li><code>product_status/known_not_affected[]</code></li>
+<li><code>product_status/first_fixed[]</code></li>
+<li><code>product_status/fixed[]</code></li>
+<li><code>product_status/under_investigation[]</code></li>
+</ul>
+<p>For each product ID listed here, a corresponding remediation should
+exist.</p>
+<p>For each product ID listed here, a score object which covers the
+product should exist.</p>
+<p>For each entry a corresponding <code>full_product_name</code> element
+with matching <code>product_id</code> must be defined.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-22">types</a>.</p>
+<p><strong>First Fixed</strong></p>
+<p>The version of a product which first contains a fix, or which product
+version closed the vulnerability. All previous versions are assumed to
+be affected.</p>
+<p>A product listed here must not be listed in any of the following</p>
+<ul>
+<li><code>product_status/first_affected[]</code></li>
+<li><code>product_status/known_affected[]</code></li>
+<li><code>product_status/last_affected[]</code></li>
+<li><code>product_status/known_not_affected[]</code></li>
+<li><code>product_status/under_investigation[]</code></li>
+</ul>
+<p>For each product ID listed here, a CVSS applying to this product
+should have an environmental score of <code>0</code>.</p>
+<p>For each entry a corresponding <code>full_product_name</code> element
+with matching <code>product_id</code> must be defined.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-23">types</a>.</p>
+<p><strong>Fixed</strong></p>
+<p>Listing fixed products facilitates the examination if products are
+affected.</p>
+<p>A product listed here must not be listed in any of the following</p>
+<ul>
+<li><code>product_status/first_affected[]</code></li>
+<li><code>product_status/known_affected[]</code></li>
+<li><code>product_status/last_affected[]</code></li>
+<li><code>product_status/known_not_affected[]</code></li>
+<li><code>product_status/under_investigation[]</code></li>
+</ul>
+<p>For each product ID listed here, a CVSS applying to this product
+should have an environmental score of <code>0</code></p>
+<p>For each entry a corresponding <code>full_product_name</code> element
+with matching <code>product_id</code> must be defined.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-24">types</a>.</p>
+<p><strong>Known Affected</strong></p>
+<p>Listing affected products facilitates the examination if products are
+affected.</p>
+<p>A product listed here must not be listed in any of the following</p>
+<ul>
+<li><code>product_status/known_not_affected[]</code></li>
+<li><code>product_status/first_fixed[]</code></li>
+<li><code>product_status/fixed[]</code></li>
+<li><code>product_status/under_investigation[]</code></li>
+</ul>
+<p>For each product ID listed here, a remediation should exist.</p>
+<p>For each product ID listed here, a score object which covers the
+product should exist.</p>
+<p>For all profiles other than <code>csaf_vex</code>, an action
+statement should be listed in the remediations - also for products for
+which there is no (planned) fix.</p>
+<p>For each entry a corresponding <code>full_product_name</code> element
+with matching <code>product_id</code> must be defined.</p>
+<p>For the <code>csaf_vex</code> profile, for each item in
+<code>known_affected</code> a corresponding action statement in
+<code>/vulnerabilities[]/remediations</code> must exist.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-25">types</a>.</p>
+<p><em>Additional for profile CSAF VEX</em></p>
+<p>For the <code>csaf_vex</code> profile, for each item in
+<code>known_affected</code> a corresponding action statement in
+<code>/vulnerabilities[]/remediations</code> must exist.</p>
+<p>The action statement describes what a user should do. Optional,
+additional information MAY also be provided through
+<code>/vulnerabilities[]/notes</code> and
+<code>/vulnerabilities[]/threats</code>.</p>
+<p><strong>Known Not Affected</strong></p>
+<p>Lists only non-affected products.</p>
+<p>Products that are only not affected in a certain configuration must
+not be listed here. These products are considered affected as the user
+has to check the configuration (which is a remediation and can be
+described as action statement).</p>
+<p>It should always be stated why the products are not affected.</p>
+<p>A product listed here must not be listed in any of the following</p>
+<ul>
+<li><code>product_status/first_affected[]</code></li>
+<li><code>product_status/known_affected[]</code></li>
+<li><code>product_status/last_affected[]</code></li>
+<li><code>product_status/first_fixed[]</code></li>
+<li><code>product_status/fixed[]</code></li>
+<li><code>product_status/under_investigation[]</code></li>
+</ul>
+<p>For each entry a corresponding <code>full_product_name</code> element
+with matching <code>product_id</code> must be defined.</p>
+<p>For the <code>csaf_vex</code> profile, for each item in
+<code>known_not_affected</code> a corresponding impact statement must
+exist in <code>/vulnerabilities[]/flags</code> or
+<code>vulnerabilities[]/threats</code>. For the latter one, the
+<code>category</code> value for such a statement must be
+<code>impact</code></p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-26">types</a>.</p>
+<p><em>Additional for profile CSAF VEX</em></p>
+<p>For the <code>csaf_vex</code> profile, for each item in
+<code>known_not_affected</code> a corresponding impact statement must
+exist in <code>/vulnerabilities[]/flags</code> or
+<code>vulnerabilities[]/threats</code>. For the latter one, the
+<code>category</code> value for such a statement must be
+<code>impact</code> and the <code>details</code> field SHALL contain a
+description why the vulnerability cannot be exploited.</p>
+<p><strong>Last Affected</strong></p>
+<p>Describes the last version that is affected by the vulnerability. All
+subsequent versions are either fixed or not affected.</p>
+<p>A product listed here must not be listed in any of the following</p>
+<ul>
+<li><code>product_status/known_not_affected[]</code></li>
+<li><code>product_status/first_fixed[]</code></li>
+<li><code>product_status/fixed[]</code></li>
+<li><code>product_status/under_investigation[]</code></li>
+</ul>
+<p>For each product ID listed here, a remediation should exist.</p>
+<p>For each product ID listed here, a score object which covers the
+product should exist.</p>
+<p>For each entry a corresponding <code>full_product_name</code> element
+with matching <code>product_id</code> must be defined.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-27">types</a>.</p>
+<p><strong>Recommended</strong></p>
+<p>If there are multiple fixes available, it is recommended to list the
+preferred one here.</p>
+<p>If there is no fixed version, but several vulnerable ones where the
+characteristics of the vulnerability differs, the field can also be used
+to recommend less vulnerable versions.</p>
+<p>If a patch fixes one vulnerability but introduces another, it is
+necessary to weigh which of the vulnerabilities is more acceptable and
+recommend the less vulnerable version accordingly.</p>
+<p>Whenever a vulnerable version is specified as recommended, a textual
+description under <code>/vulnerabilities[]/notes</code> must indicate
+why it was recommended.</p>
+<p>For each entry a corresponding <code>full_product_name</code> element
+with matching <code>product_id</code> must be defined.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-28">types</a>.</p>
+<p><strong>Under Investigation</strong></p>
+<p>For the products listed here, it is not yet clear whether they are
+affected or not affected. It is expected that in a later release the
+analysis result will be communicated.</p>
+<p>If general mitigation guidance can be provided and is applicable to
+products currently under investigation, it should be provided. A valid
+remediation can also be of the category <code>none_available</code> or
+<code>no_fix_planned</code>.</p>
+<p>Especially useful in cases of large Multi-Party Coordinated
+Vulnerability Disclosure to provide the current status of the
+investigation.</p>
+<p>A product listed here must not be listed in any of the following</p>
+<ul>
+<li><code>product_status/first_affected[]</code></li>
+<li><code>product_status/known_affected[]</code></li>
+<li><code>product_status/last_affected[]</code></li>
+<li><code>product_status/known_not_affected[]</code></li>
+<li><code>product_status/first_fixed[]</code></li>
+<li><code>product_status/fixed[]</code></li>
+</ul>
+<p>For each entry a corresponding <code>full_product_name</code> element
+with matching <code>product_id</code> must be defined.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-29">types</a>.</p>
+<h3 data-number="4.1.9" id="remediations"><span
+class="header-section-number">4.1.9</span> Remediations</h3>
+<p>All information on how to fix the vulnerability, or even if no fix is
+possible.</p>
+<p>For End of Life products, typically, the category
+<code>no_fix_planned</code> is used.</p>
+<p>If no patch or other remediation is available yet, this should be
+communicated via <code>none_available</code>. It should then be
+described why this is the case.</p>
+<h4 data-number="4.1.9.1" id="remediation"><span
+class="header-section-number">4.1.9.1</span> Remediation</h4>
+<p>Each remediation must include at least one of the elements
+<code>group_ids</code> or <code>product_ids</code>.</p>
+<p><strong>Category</strong></p>
+<p>The category indicates to which type the remediation belongs.</p>
+<p>For end of life products the category <code>no_fix_planned</code> is
+common. A reference to the fact that these are end of life products is
+sufficient. It is best to include the date since when these products are
+no longer supported. A reference to compatible successor products is
+permissible and recommended. In other cases where
+<code>no_fix_planned</code> is used, it should be stated why no fix has
+been created or is planned. Permissible reasons include that the
+hardware requirements of the mitigation measure exceed the capabilities
+of the existing hardware.</p>
+<p><em>Example:</em></p>
+<ul>
+<li>An embedded system uses 1024 RSA keys when RSA 3072 keys would be
+secure but there is not enough memory to execute the computations.</li>
+</ul>
+<p>The value <code>none_available</code> must always be specified if no
+remediation is available. Can also be specified if no patch is available
+yet, but it is planned. In this case an expected release date of the
+patch should be specified. Once the patch is available, a remediation
+with the category <code>vendor_fix</code> will replace this
+remediation.</p>
+<p>Unless otherwise specified, the category <code>vendor_fix</code>
+assumes that the patch fully remediates the vulnerability. If there are
+any effects on functionality, these must be entered in the details of
+the remediation. Additionally, installation instructions or
+prerequisites can also be specified.</p>
+<p>For the value <code>mitigation</code> it is crucial that the
+exploitability is reduced, but the vulnerability is not completely
+fixed.</p>
+<p>A <code>workaround</code> describes a configuration or special
+deployment that can be used to prevent the exploitability of the
+vulnerability.</p>
+<p>Hotfixes are usually classified as <code>workarounds</code> because
+they prevent exploitability. However, hotfixes can also be classified as
+<code>mitigation</code> if they do not completely fix the vulnerability.
+Hotfixes can also be listed at <code>vendor_fix</code> if they
+completely fix the problem.</p>
+<p><strong>Date</strong></p>
+<p>The date from when on the remediation is/was available.</p>
+<p>This information is helpful in audits to prove from when on one was
+aware of a certain remediation measure.</p>
+<p><strong>Details</strong></p>
+<p>The detailed description of the remediation.</p>
+<p>The content is determined by the category.</p>
+<h5 data-number="4.1.9.1.1" id="group-ids"><span
+class="header-section-number">4.1.9.1.1</span> Group Ids</h5>
+<p>List of group IDs to which the remediation applies.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-30">types</a>.</p>
+<p><strong>Product Ids</strong></p>
+<p>List of product IDs to which the remediation applies.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-31">types</a>.</p>
+<p><strong>Url</strong></p>
+<p>The URL where the remediation can be retrieved.</p>
+<h5 data-number="4.1.9.1.2" id="entitlements"><span
+class="header-section-number">4.1.9.1.2</span> Entitlements</h5>
+<p>Conditions that must be fulfilled in order to receive the patch or
+implement the mitigation action.</p>
+<p><em>Example:</em></p>
+<p>An active support contract is required.</p>
+<p><strong>Entitlement</strong></p>
+<p>There is no usage documentation yet.</p>
+<h5 data-number="4.1.9.1.3" id="restart-required"><span
+class="header-section-number">4.1.9.1.3</span> Restart Required</h5>
+<p>Specifies whether a restart is required for the mitigation measure,
+and if so, in what scope.</p>
+<p>This is relevant as in some cases where connections exist the scope
+may be beyond a single machine.</p>
+<p>This information may help in making better / risk-based decisions. A
+remediation with <code>restart_required/category</code>
+<code>none</code> may be applied faster than another one. The
+information is also especially relevant if the product itself is
+modified with the mitigating measure (workaround, mitigation, or vendor
+fix).</p>
+<p>If the product environment is modified (e.g., adjusting the rules of
+an external firewall), it is difficult if not impossible for vendors to
+determine if a restart is required.</p>
+<p><strong>Category</strong></p>
+<p>Specifies the type and scope of the required restart in
+machine-readable form.</p>
+<p>Mitigation measures that do not require a restart and can therefore
+be executed during operation may be preferred.</p>
+<ul>
+<li><p><code>none</code>: No restart is necessary.</p>
+<p>Example: “kill telnet process”.</p></li>
+<li><p><code>vulnerable_component</code>: Only the affected product
+needs to be restarted.</p>
+<p>Example: natepad++ portable, exit, install new version or patch, and
+restart.</p></li>
+<li><p><code>service</code>: Services need to be restarted.</p>
+<p>Example: <code>CVE 2019-11043</code> remote code execution in a
+configuration of nginx and fpn. Service must be restarted when running
+nextcloud in default configuration.</p></li>
+<li><p><code>parent</code>: Is always the case when the vulnerability is
+in a product running in a child process. If only the child program is
+restarted, the parent program does not know that a new binary
+exists.</p></li>
+<li><p><code>dependencies</code>: The vulnerability in the program in
+the parent process and all programs depending on it must be
+restarted.</p>
+<p>Example: pppd</p></li>
+<li><p><code>connected</code>: All products connected to the affected
+product, as well as the affected product itself, must be restarted. The
+connection can be via network or other inter-process communication.</p>
+<p>Example: A product that uses TLS only at the beginning and does not
+do session renegotiation.</p></li>
+<li><p><code>machine</code>: The entire machine must be rebooted.</p>
+<p>Example: Windows 10 Semiannual Upgrade.</p></li>
+<li><p><code>zone</code>: A zone consisting of multiple machines
+(e.g. security zone or broadcast zone) must be restarted.</p>
+<p>Example: WannaCry infecting industrial PCs which have the Write
+Filter enabled. Windows reboots after infection when WannaCry tries to
+encrypt the disk which removes WannaCry from this PC. However, other PCs
+in the same security zone still have WannaCry and reinfect each other.
+To get a clean zone, all equipment must be turned off and be rebooted
+afterwards.</p></li>
+<li><p><code>system</code>: A system usually consisting of multiple
+zones must be restarted.</p>
+<p>Example: Update to a new (encrypted) version of an industry
+protocol.</p></li>
+</ul>
+<p><strong>Details</strong></p>
+<p>The details should describe which effects a restart has, or which
+procedures are to be considered with a restart.</p>
+<p>Further descriptions of the scope of the restart should also be added
+here.</p>
+<h3 data-number="4.1.10" id="scores"><span
+class="header-section-number">4.1.10</span> Scores</h3>
+<p>Provides an assessment of the severity of the vulnerabilities.</p>
+<p>The same product must not be listed more than once with a CVSS-Vector
+with the same version.</p>
+<p>Fixed products should not be listed here.</p>
+<h4 data-number="4.1.10.1" id="score"><span
+class="header-section-number">4.1.10.1</span> Score</h4>
+<p>For CVSS scores, the referenced schema must be adhered to.</p>
+<p>For CVSS scores, the computed values must be correct according to
+their definition. For this computation, the <code>vectorString</code>
+takes precedence over the other properties.</p>
+<p>For CVSS scores, the given properties must not contradict the CVSS
+vector.</p>
+<p>CVSS v2 (<code>cvss_v2</code>) should not be the only scoring item
+used. Instead of using CVSS v3.0, an upgrade to CVSS v3.1 should be
+considered. Generally, it is recommended to use CVSS v3.1.</p>
+<p><strong>Products</strong></p>
+<p>Specifies the products to which the score applies.</p>
+<p>If the score applies to all affected products within the
+vulnerability, a score element whose products resemble the
+<em>affected</em> product group should be specified.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-32">types</a>.</p>
+<p><strong>Cvss V2</strong></p>
+<p>The schema at <a
+href="https://www.first.org/cvss/cvss-v2.0.json">https://www.first.org/cvss/cvss-v2.0.json</a>
+must be adhered to.</p>
+<p>The computed values must be correct according to their definition.
+For this computation, the <code>vectorString</code> takes precedence
+over the other properties.</p>
+<p>The given properties must not contradict the CVSS vector.</p>
+<p>If the corresponding product is listed in
+<code>/vulnerabilities[]/product_status/first_fixed[]</code> or
+<code>/vulnerabilities[]/product_status/fixed[]</code>, the
+<code>environmental_score</code> should be <code>0</code>.</p>
+<p>The <code>exploitability</code> should be given to convey at least if
+the vulnerability is already actively exploited.</p>
+<p>The single fields are encoded in the vector string and thus may be
+redundant. However, adding them is encouraged as the vector string may
+be incomplete.</p>
+<p>Using CVSS v3.1 is encouraged.</p>
+<p><strong>Cvss V3</strong></p>
+<p>The schema at <a
+href="https://www.first.org/cvss/cvss-v3.1.json">https://www.first.org/cvss/cvss-v3.1.json</a>
+respectively <a
+href="https://www.first.org/cvss/cvss-v3.0.json">https://www.first.org/cvss/cvss-v3.0.json</a>
+must be adhered to.</p>
+<p>The computed values must be correct according to their definition.
+For this computation, the <code>vectorString</code> takes precedence
+over the other properties.</p>
+<p>The given properties must not contradict the CVSS vector.</p>
+<p>If the corresponding product is listed in
+<code>/vulnerabilities[]/product_status/first_fixed[]</code> or
+<code>/vulnerabilities[]/product_status/fixed[]</code>, the
+<code>environmental_score</code> should be <code>0</code>.</p>
+<p>The <code>exploitCodeMaturityType</code> should be given to convey at
+least if the vulnerability is already actively exploited.</p>
+<p>The single fields are encoded in the vector string and thus may be
+redundant. However, adding them is encouraged as the vector string may
+be incomplete.</p>
+<p>Using CVSS v3.1 is encouraged.</p>
+<h3 data-number="4.1.11" id="threats"><span
+class="header-section-number">4.1.11</span> Threats</h3>
+<p>Lists existing or possible threats like known exploits.</p>
+<p>If a product is not affected an impact statement (threat with
+category <code>impact</code>) should be listed explaining the
+reason.</p>
+<p>The threats should contain information about a vulnerability that is
+particularly exploited in a specific geographic area or industry
+(e.g. banks).</p>
+<p>As the listed threats contains information that may change over time
+it should be assumed that the information is/was up-to-date at the time
+of writing.</p>
+<h4 data-number="4.1.11.1" id="threat"><span
+class="header-section-number">4.1.11.1</span> Threat</h4>
+<p>There is no usage documentation yet.</p>
+<p><strong>Category</strong></p>
+<p>Specifies the type of information.</p>
+<p><strong>Date</strong></p>
+<p>The date when the information was entered, or was current.</p>
+<p><strong>Details</strong></p>
+<p>A detailed description of the information determined by the
+category.</p>
+<p><strong>Group Ids</strong></p>
+<p>The product groups which the information refers to.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-33">types</a>.</p>
+<p><strong>Product Ids</strong></p>
+<p>The products to which the information refers to.</p>
+<p>A corresponding <code>full_product_name</code> element with matching
+<code>product_id</code> must be defined.</p>
+<p>Further description of this type can be found under <a
+href="#md-merge-link-34">types</a>.</p>
+</body>
+</html>
