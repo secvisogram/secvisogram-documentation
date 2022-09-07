@@ -16,16 +16,16 @@ The mandatory fields that need to be provided are checked by schema validation.
 
 ### Best Practice Fields to Check
 
-* `/document/notes[]/title`
-* `/vulnerabilities[]/scores[]/cvss_v3`
-* `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity`
-* `/vulnerabilities[]/scores[]/cvss_v3/attackVector`
-* `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired`
-* `/vulnerabilities[]/scores[]/cvss_v3/scope`
-* `/vulnerabilities[]/scores[]/cvss_v3/userInteraction`
+- `/document/notes[]/title`
+- `/vulnerabilities[]/scores[]/cvss_v3`
+- `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity`
+- `/vulnerabilities[]/scores[]/cvss_v3/attackVector`
+- `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired`
+- `/vulnerabilities[]/scores[]/cvss_v3/scope`
+- `/vulnerabilities[]/scores[]/cvss_v3/userInteraction`
 
 ## Checks for Profile CSAF Security Incident Response
 
@@ -34,17 +34,17 @@ The mandatory fields that need to be provided are checked by schema validation.
 
 ### Best Practice Fields to Check
 
-* `/document/distribution`
-* `/document/notes[]/title`
-* `/vulnerabilities[]/scores[]/cvss_v3`
-* `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity`
-* `/vulnerabilities[]/scores[]/cvss_v3/attackVector`
-* `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired`
-* `/vulnerabilities[]/scores[]/cvss_v3/scope`
-* `/vulnerabilities[]/scores[]/cvss_v3/userInteraction`
+- `/document/distribution`
+- `/document/notes[]/title`
+- `/vulnerabilities[]/scores[]/cvss_v3`
+- `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity`
+- `/vulnerabilities[]/scores[]/cvss_v3/attackVector`
+- `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired`
+- `/vulnerabilities[]/scores[]/cvss_v3/scope`
+- `/vulnerabilities[]/scores[]/cvss_v3/userInteraction`
 
 ## Checks for Profile CSAF Informational Advisory
 
@@ -56,8 +56,8 @@ The mandatory fields that need to be provided are checked by schema validation.
 
 Best Practice Fields
 
-* `/document/distribution`
-* `/document/notes[]/title`
+- `/document/distribution`
+- `/document/notes[]/title`
 
 ## Checks for Profile CSAF Security Advisory
 
@@ -69,46 +69,46 @@ Best Practice Fields
 
 ### Best Practice Fields to Check
 
-* `/document/acknowledgments`
-* `/document/acknowledgments[]/names`
-* `/document/acknowledgments[]/organization`
-* `/document/acknowledgments[]/summary`
-* `/document/aggregate_severity/text`
-* `/document/distribution`
-* `/document/distribution/tlp`
-* `/document/distribution/tlp/label`
-* `/document/notes`
-* `/document/notes[]/title`
-* `/document/publisher/contact_details`
-* `/document/references`
-* `/product_tree/branches`
-* `/vulnerabilities[]/acknowledgments[]/names`
-* `/vulnerabilities[]/acknowledgments[]/organization`
-* `/vulnerabilities[]/acknowledgments[]/summary`
-* `/vulnerabilities[]/cve`
-* `/vulnerabilities[]/cwe`
-* `/vulnerabilities[]/involvements[]/date`
-* `/vulnerabilities[]/involvements[]/summary`
-* `/vulnerabilities[]/notes[]/title`
-* `/vulnerabilities[]/product_status/fixed`
-* `/vulnerabilities[]/product_status/known_affected`
-* `/vulnerabilities[]/references`
-* `/vulnerabilities[]/remediations`
-* `/vulnerabilities[]/remediations[]/url`
-* `/vulnerabilities[]/scores`
-* `/vulnerabilities[]/scores[]/cvss_v3`
-* `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity`
-* `/vulnerabilities[]/scores[]/cvss_v3/attackVector`
-* `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired`
-* `/vulnerabilities[]/scores[]/cvss_v3/scope`
-* `/vulnerabilities[]/scores[]/cvss_v3/userInteraction`
-* `/vulnerabilities[]/threats[]/date`
-* `/vulnerabilities[]/threats[]/group_ids`
-* `/vulnerabilities[]/threats[]/product_ids`
-* `/vulnerabilities[]/title`
+- `/document/acknowledgments`
+- `/document/acknowledgments[]/names`
+- `/document/acknowledgments[]/organization`
+- `/document/acknowledgments[]/summary`
+- `/document/aggregate_severity/text`
+- `/document/distribution`
+- `/document/distribution/tlp`
+- `/document/distribution/tlp/label`
+- `/document/notes`
+- `/document/notes[]/title`
+- `/document/publisher/contact_details`
+- `/document/references`
+- `/product_tree/branches`
+- `/vulnerabilities[]/acknowledgments[]/names`
+- `/vulnerabilities[]/acknowledgments[]/organization`
+- `/vulnerabilities[]/acknowledgments[]/summary`
+- `/vulnerabilities[]/cve`
+- `/vulnerabilities[]/cwe`
+- `/vulnerabilities[]/involvements[]/date`
+- `/vulnerabilities[]/involvements[]/summary`
+- `/vulnerabilities[]/notes[]/title`
+- `/vulnerabilities[]/product_status/fixed`
+- `/vulnerabilities[]/product_status/known_affected`
+- `/vulnerabilities[]/references`
+- `/vulnerabilities[]/remediations`
+- `/vulnerabilities[]/remediations[]/url`
+- `/vulnerabilities[]/scores`
+- `/vulnerabilities[]/scores[]/cvss_v3`
+- `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity`
+- `/vulnerabilities[]/scores[]/cvss_v3/attackVector`
+- `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired`
+- `/vulnerabilities[]/scores[]/cvss_v3/scope`
+- `/vulnerabilities[]/scores[]/cvss_v3/userInteraction`
+- `/vulnerabilities[]/threats[]/date`
+- `/vulnerabilities[]/threats[]/group_ids`
+- `/vulnerabilities[]/threats[]/product_ids`
+- `/vulnerabilities[]/title`
 
 ## Checks for Profile CSAF VEX
 
@@ -120,23 +120,23 @@ Best Practice Fields
 
 ### Best Practice Fields to Check
 
-* `/document/notes[]/title`
-* `/document/publisher/contact_details`
-* `/document/references`
-* `/product_tree/branches`
-* `/vulnerabilities[]/flags[]/date`
-* `/vulnerabilities[]/involvements[]/date`
-* `/vulnerabilities[]/involvements[]/summary`
-* `/vulnerabilities[]/notes[]/title`
-* `/vulnerabilities[]/references`
-* `/vulnerabilities[]/remediations[]/url`
-* `/vulnerabilities[]/scores[]/cvss_v3`
-* `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity`
-* `/vulnerabilities[]/scores[]/cvss_v3/attackVector`
-* `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact`
-* `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired`
-* `/vulnerabilities[]/scores[]/cvss_v3/scope`
-* `/vulnerabilities[]/scores[]/cvss_v3/userInteraction`
-* `/vulnerabilities[]/threats[]/date`
+- `/document/notes[]/title`
+- `/document/publisher/contact_details`
+- `/document/references`
+- `/product_tree/branches`
+- `/vulnerabilities[]/flags[]/date`
+- `/vulnerabilities[]/involvements[]/date`
+- `/vulnerabilities[]/involvements[]/summary`
+- `/vulnerabilities[]/notes[]/title`
+- `/vulnerabilities[]/references`
+- `/vulnerabilities[]/remediations[]/url`
+- `/vulnerabilities[]/scores[]/cvss_v3`
+- `/vulnerabilities[]/scores[]/cvss_v3/attackComplexity`
+- `/vulnerabilities[]/scores[]/cvss_v3/attackVector`
+- `/vulnerabilities[]/scores[]/cvss_v3/availabilityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/confidentialityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/integrityImpact`
+- `/vulnerabilities[]/scores[]/cvss_v3/privilegesRequired`
+- `/vulnerabilities[]/scores[]/cvss_v3/scope`
+- `/vulnerabilities[]/scores[]/cvss_v3/userInteraction`
+- `/vulnerabilities[]/threats[]/date`
